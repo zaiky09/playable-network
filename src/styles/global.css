@@ -39,3 +39,26 @@ body {
 html[dir="rtl"] body {
   font-family: var(--font-arabic);
 }
+
+/* Lightbox dialog — native <dialog> styling */
+dialog.lightbox {
+  border: none;
+  padding: 0;
+  background: transparent;
+  max-width: 100vw;
+  max-height: 100vh;
+  width: 100vw;
+  height: 100vh;
+  color: white;
+  overflow: hidden;
+}
+
+dialog.lightbox::backdrop {
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(6px);
+}
+
+/* Lock background scroll when dialog open */
+body:has(dialog.lightbox[open]) {
+  overflow: hidden;
+}
