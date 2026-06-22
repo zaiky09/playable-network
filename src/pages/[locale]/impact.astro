@@ -9,6 +9,25 @@ export function getStaticPaths() {
 const locale = Astro.params.locale as Locale;
 const t = useTranslations(locale);
 const base = `/${locale}`;
+
+const galleries: Record<string, string[]> = {
+  turkana: [
+    'turkana-coach-equipment-distribution.jpg',
+    'turkana-mentoring-session-03.jpg',
+    'turkana-players-huddle-dirt-pitch.jpg',
+    'turkana-pitch-training-01.jpg',
+    'turkana-match-orange-vests-dirt-field.jpg',
+    'turkana-coach-training-session.jpg',
+  ],
+  mombasa: [
+    'mombasa-match-02.jpg',
+    'mombasa-match-03.jpg',
+    'mombasa-match-04.jpg',
+    'mombasa-match-05.jpg',
+    'mombasa-match-06.jpg',
+    'mombasa-group.jpg',
+  ],
+};
 ---
 
 <BaseLayout locale={locale} title={t.impact.title}>
@@ -21,7 +40,19 @@ const base = `/${locale}`;
     t.impact.programmes.map((p, idx) => (
       <section class={idx % 2 === 0 ? 'bg-gray-50 py-16' : 'py-16'}>
         <div class="container mx-auto px-4">
-          <div class="grid gap-10 md:grid-cols-5">
+          <div
+            class={`aspect-[16/9] w-full overflow-hidden rounded-lg bg-gradient-to-br ${p.slug === 'turkana' ? 'from-brand to-brand-accent' : 'from-brand-accent to-brand'}`}
+          >
+            <img
+              src={`/photos/${p.slug}/hero.jpg`}
+              alt={`${p.name} — ${p.location}`}
+              class="h-full w-full object-cover"
+              loading="lazy"
+              onerror="this.style.display='none'"
+            />
+          </div>
+
+          <div class="mt-10 grid gap-10 md:grid-cols-5">
             <div class="md:col-span-3">
               <p class="text-sm font-semibold uppercase tracking-wide text-brand-accent">
                 {p.location} · {p.partner}
@@ -46,17 +77,29 @@ const base = `/${locale}`;
               </div>
             </div>
           </div>
-          <div
-            class={`mt-10 aspect-[16/9] w-full overflow-hidden rounded-lg bg-gradient-to-br ${p.slug === 'turkana' ? 'from-brand to-brand-accent' : 'from-brand-accent to-brand'}`}
-          >
-            <img
-              src={`/photos/${p.slug}/hero.jpg`}
-              alt={`${p.name} — ${p.location}`}
-              class="h-full w-full object-cover"
-              loading="lazy"
-              onerror="this.style.display='none'"
-            />
-          </div>
+
+          {galleries[p.slug] && (
+            <div class="mt-10">
+              <h3 class="text-sm font-semibold uppercase tracking-wide text-gray-500">
+                From the {p.location} programme
+              </h3>
+              <div class="mt-4 grid grid-cols-2 gap-3 md:grid-cols-3">
+                {galleries[p.slug].map((img) => (
+                  <a
+                    href={`/photos/${p.slug}/${img}`}
+                    class="block aspect-square overflow-hidden rounded-lg bg-gray-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent"
+                  >
+                    <img
+                      src={`/photos/${p.slug}/${img}`}
+                      alt={`${p.name} programme moment`}
+                      class="h-full w-full object-cover transition duration-300 hover:scale-105"
+                      loading="lazy"
+                    />
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </section>
     ))
