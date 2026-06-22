@@ -1,0 +1,33 @@
+---
+import { useTranslations, type Locale } from '@/i18n/config';
+
+interface Props {
+  locale: Locale;
+  size?: 'sm' | 'md' | 'lg';
+  class?: string;
+}
+
+const { locale, size = 'md', class: className = '' } = Astro.props;
+const t = useTranslations(locale);
+
+const sizeClasses: Record<NonNullable<Props['size']>, string> = {
+  sm: 'h-10',
+  md: 'h-14',
+  lg: 'h-24 md:h-32',
+};
+
+// fetchpriority="high" only makes sense for the header instance (above-the-fold).
+// Smaller variants (footer, etc.) shouldn't compete with critical resources.
+const isPriority = size === 'md' || size === 'lg';
+---
+
+<img
+  src="/logo.png"
+  alt={t.meta.siteName}
+  width="1024"
+  height="1024"
+  class={`w-auto ${sizeClasses[size]} ${className}`}
+  loading={isPriority ? undefined : 'lazy'}
+  fetchpriority={isPriority ? 'high' : undefined}
+  decoding="async"
+/>

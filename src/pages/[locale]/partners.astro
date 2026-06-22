@@ -1,0 +1,70 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { locales, useTranslations, type Locale } from '@/i18n/config';
+
+export function getStaticPaths() {
+  return locales.map((locale) => ({ params: { locale } }));
+}
+
+const locale = Astro.params.locale as Locale;
+const t = useTranslations(locale);
+const base = `/${locale}`;
+
+function slugify(name: string) {
+  return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+}
+---
+
+<BaseLayout locale={locale} title={t.partners.title}>
+  <section class="container mx-auto px-4 py-16">
+    <h1 class="text-4xl font-bold text-brand md:text-5xl">{t.partners.title}</h1>
+    <p class="mt-6 max-w-3xl text-lg text-gray-700">{t.partners.intro}</p>
+  </section>
+
+  <section class="bg-gray-50 py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl font-bold text-brand">{t.partners.keyTitle}</h2>
+      <div class="mt-10 grid gap-6 md:grid-cols-2">
+        {
+          t.partners.list.map((partner) => (
+            <article class="flex flex-col gap-4 rounded-lg border border-gray-200 bg-white p-6 sm:flex-row sm:items-start">
+              <div class="flex h-24 w-24 shrink-0 items-center justify-center rounded-lg border border-gray-200 bg-white">
+                <img
+                  src={`/logos/${slugify(partner.name)}.jpg`}
+                  alt={`${partner.name} logo`}
+                  width="96"
+                  height="96"
+                  class="max-h-20 max-w-20 object-contain"
+                  loading="lazy"
+                  onerror="this.parentElement.innerHTML = '<span class=\'text-3xl font-bold text-brand-accent\'>'+this.alt[0]+'</span>'"
+                />
+              </div>
+              <div class="flex-1">
+                <h3 class="text-xl font-bold text-brand">{partner.name}</h3>
+                <p class="mt-1 text-sm font-semibold text-brand-accent">
+                  {partner.location}
+                  {partner.established ? ` · ${partner.established}` : ''}
+                </p>
+                <p class="mt-3 text-sm text-gray-700">{partner.description}</p>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+      <p class="mt-10 max-w-3xl text-gray-700">{t.partners.footer}</p>
+    </div>
+  </section>
+
+  <section class="container mx-auto px-4 py-16">
+    <div class="rounded-lg border-2 border-brand-accent p-10">
+      <h2 class="text-2xl font-bold text-brand">{t.partners.ctaText}</h2>
+      <p class="mt-3 max-w-2xl text-gray-700">{t.support.contactBody}</p>
+      <a
+        href={`${base}/contact`}
+        class="mt-6 inline-block rounded bg-brand-accent px-5 py-2.5 font-semibold text-white hover:bg-brand-accent-dark"
+      >
+        {t.nav.contact}
+      </a>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,91 @@
+---
+import { useTranslations, type Locale } from '@/i18n/config';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+---
+
+<form id="contact-form" class="space-y-4" novalidate>
+  <div>
+    <label for="name" class="block text-sm font-medium">{t.contact.formName}</label>
+    <input
+      id="name"
+      name="name"
+      type="text"
+      required
+      class="mt-1 w-full rounded border border-gray-300 px-3 py-2 focus:border-brand focus:outline-none"
+    />
+  </div>
+  <div>
+    <label for="email" class="block text-sm font-medium">{t.contact.formEmail}</label>
+    <input
+      id="email"
+      name="email"
+      type="email"
+      required
+      class="mt-1 w-full rounded border border-gray-300 px-3 py-2 focus:border-brand focus:outline-none"
+    />
+  </div>
+  <div>
+    <label for="message" class="block text-sm font-medium">{t.contact.formMessage}</label>
+    <textarea
+      id="message"
+      name="message"
+      rows="5"
+      required
+      class="mt-1 w-full rounded border border-gray-300 px-3 py-2 focus:border-brand focus:outline-none"
+    ></textarea>
+  </div>
+  <!-- Honeypot: bots fill this; humans don't see it -->
+  <input
+    type="text"
+    name="company"
+    tabindex="-1"
+    autocomplete="off"
+    class="absolute left-[-9999px]"
+    aria-hidden="true"
+  />
+  <button
+    type="submit"
+    class="rounded bg-brand px-4 py-2 font-medium text-white hover:bg-brand-dark disabled:opacity-50"
+  >
+    {t.contact.formSubmit}
+  </button>
+  <p id="contact-status" class="text-sm" role="status" aria-live="polite"></p>
+</form>
+
+<script
+  define:vars={{ successMsg: t.contact.formSuccess, errorMsg: t.contact.formError }}
+>
+  const form = document.getElementById('contact-form');
+  const status = document.getElementById('contact-status');
+  const button = form.querySelector('button[type="submit"]');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    status.textContent = '';
+    button.disabled = true;
+
+    const data = Object.fromEntries(new FormData(form));
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) throw new Error('bad response');
+      status.textContent = successMsg;
+      status.className = 'text-sm text-green-700';
+      form.reset();
+    } catch {
+      status.textContent = errorMsg;
+      status.className = 'text-sm text-red-700';
+    } finally {
+      button.disabled = false;
+    }
+  });
+</script>

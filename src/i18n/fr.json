@@ -1,0 +1,75 @@
+{
+  "meta": {
+    "siteName": "PlayAble Network",
+    "defaultDescription": "Développement des jeunes par le football dans le comté de Turkana, au Kenya."
+  },
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "whatWeDo": "Nos actions",
+    "partners": "Partenaires",
+    "contact": "Contact"
+  },
+  "home": {
+    "heroTitle": "PlayAble Network",
+    "heroSubtitle": "Construit par le jeu, animé par un but.",
+    "heroDescription": "Développement des jeunes par le football dans le comté de Turkana, au Kenya.",
+    "ctaPrimary": "Nous contacter",
+    "ctaSecondary": "Nos actions"
+  },
+  "pillars": [
+    { "title": "Développer le talent", "blurb": "[Texte du pilier — décrire comment PlayAble cultive les compétences des jeunes joueurs.]" },
+    { "title": "Renforcer les communautés", "blurb": "[Texte du pilier — décrire comment le football renforce les liens communautaires au Turkana.]" },
+    { "title": "Éducation et compétences de vie", "blurb": "[Texte du pilier — décrire l'apprentissage hors du terrain qui accompagne le programme.]" }
+  ],
+  "latest": {
+    "title": "Actualités",
+    "followCta": "Suivre sur Instagram",
+    "viewOnInstagram": "Voir sur Instagram",
+    "fallback": [
+      { "caption": "Ensemble pour Turkana — Football pour le développement des jeunes.", "link": "https://www.instagram.com/theplayablenetwork" },
+      { "caption": "Construire des communautés plus fortes, un match à la fois.", "link": "https://www.instagram.com/theplayablenetwork" },
+      { "caption": "Développer le talent sur et hors du terrain.", "link": "https://www.instagram.com/theplayablenetwork" }
+    ]
+  },
+  "about": {
+    "title": "À propos",
+    "tagline": "Construit par le jeu, animé par un but.",
+    "intro": "PlayAble Network promeut le développement des jeunes par le football dans le comté de Turkana, au Kenya. À travers la formation, le mentorat et les partenariats communautaires, nous utilisons le sport comme vecteur d'opportunité.",
+    "storyTitle": "Notre histoire",
+    "story": "[Récit fondateur — quand et pourquoi PlayAble Network a été créé, par qui, et le moment déclencheur du travail.]",
+    "missionTitle": "Notre mission",
+    "mission": "[Énoncé de mission — le changement que PlayAble Network cherche à apporter, et comment le football en est le vecteur.]",
+    "teamTitle": "Notre équipe",
+    "teamIntro": "Les personnes qui font tourner les programmes sur le terrain au quotidien.",
+    "boardTitle": "Notre conseil",
+    "boardIntro": "Gouvernance et orientation stratégique de l'organisation.",
+    "legalTitle": "Mentions légales et enregistrement",
+    "legal": "[Informations légales — numéro d'enregistrement ONG, pays d'enregistrement, année de fondation, statut caritatif.]"
+  },
+  "whatWeDo": {
+    "title": "Nos actions",
+    "intro": "Trois piliers guident notre travail dans le comté de Turkana."
+  },
+  "partners": {
+    "title": "Nos partenaires",
+    "intro": "Nous travaillons aux côtés de clubs locaux, d'écoles et d'organisations communautaires pour rendre le football des jeunes possible."
+  },
+  "contact": {
+    "title": "Contact",
+    "intro": "Nous serions ravis de vous entendre.",
+    "formName": "Votre nom",
+    "formEmail": "Adresse e-mail",
+    "formMessage": "Message",
+    "formSubmit": "Envoyer le message",
+    "formSuccess": "Merci — nous vous répondrons rapidement.",
+    "formError": "Une erreur s'est produite. Veuillez réessayer ou nous contacter directement par e-mail.",
+    "directEmail": "E-mail",
+    "directLocation": "Lieu",
+    "directSocials": "Retrouvez-nous sur"
+  },
+  "footer": {
+    "copyright": "© 2026 PlayAble Network",
+    "tagline": "Construit par le jeu, animé par un but."
+  }
+}

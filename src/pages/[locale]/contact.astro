@@ -1,0 +1,60 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import ContactForm from '@/components/ContactForm.astro';
+import { locales, useTranslations, type Locale } from '@/i18n/config';
+
+export function getStaticPaths() {
+  return locales.map((locale) => ({ params: { locale } }));
+}
+
+const locale = Astro.params.locale as Locale;
+const t = useTranslations(locale);
+---
+
+<BaseLayout locale={locale} title={t.contact.title}>
+  <section class="container mx-auto grid gap-12 px-4 py-16 md:grid-cols-2">
+    <div>
+      <h1 class="text-4xl font-bold text-brand">{t.contact.title}</h1>
+      <p class="mt-6 text-lg text-gray-700">{t.contact.intro}</p>
+      <dl class="mt-8 space-y-5 text-sm">
+        <div>
+          <dt class="font-semibold text-gray-900">{t.contact.directEmail}</dt>
+          <dd class="mt-1">
+            <a href="mailto:playablenetwork.ke@gmail.com" class="text-brand hover:underline">
+              playablenetwork.ke@gmail.com
+            </a>
+          </dd>
+        </div>
+        <div>
+          <dt class="font-semibold text-gray-900">{t.contact.directPhone}</dt>
+          <dd class="mt-1 space-y-1">
+            <div>
+              <a href="tel:+254727498765" class="text-brand hover:underline">+254 727 498 765</a>
+            </div>
+            <div>
+              <a href="tel:+254746011112" class="text-brand hover:underline">+254 746 011 112</a>
+            </div>
+          </dd>
+        </div>
+        <div>
+          <dt class="font-semibold text-gray-900">{t.contact.directAddress}</dt>
+          <dd class="mt-1 text-gray-700">{t.contact.addressLine}</dd>
+        </div>
+        <div>
+          <dt class="font-semibold text-gray-900">{t.contact.directSocials}</dt>
+          <dd class="mt-1 flex flex-wrap gap-4">
+            <a
+              href="https://www.instagram.com/theplayablenetwork"
+              class="text-brand hover:underline"
+            >
+              Instagram
+            </a>
+          </dd>
+        </div>
+      </dl>
+    </div>
+    <div>
+      <ContactForm locale={locale} />
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,108 @@
+---
+import { getLatestPosts, type LatestPost } from '@/lib/sanity';
+import { getInstagramPosts, type BeholdPost } from '@/lib/instagram';
+import { useTranslations, type Locale } from '@/i18n/config';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+
+interface DisplayItem {
+  id: string;
+  caption: string;
+  imageUrl: string | null;
+  link: string | null;
+  date: string | null;
+}
+
+// Priority: Sanity (NGO-curated) → Behold (auto Instagram) → static i18n fallback
+const sanityPosts = await getLatestPosts(3);
+
+let items: DisplayItem[];
+let source: 'sanity' | 'behold' | 'fallback';
+
+if (sanityPosts && sanityPosts.length > 0) {
+  source = 'sanity';
+  items = sanityPosts.map((p: LatestPost) => ({
+    id: p._id,
+    caption: p.caption,
+    imageUrl: p.image?.asset?.url ?? null,
+    link: p.instagramUrl ?? null,
+    date: p.publishedAt,
+  }));
+} else {
+  const beholdPosts = await getInstagramPosts(3);
+  if (beholdPosts && beholdPosts.length > 0) {
+    source = 'behold';
+    items = beholdPosts.map((p: BeholdPost) => ({
+      id: p.id,
+      caption: p.prunedCaption || p.caption,
+      imageUrl: p.sizes?.medium?.mediaUrl ?? p.thumbnailUrl ?? p.mediaUrl,
+      link: p.permalink,
+      date: p.timestamp,
+    }));
+  } else {
+    source = 'fallback';
+    items = t.latest.fallback.map((f, i) => ({
+      id: `fallback-${i}`,
+      caption: f.caption,
+      imageUrl: null,
+      link: f.link || null,
+      date: null,
+    }));
+  }
+}
+
+const dateFmt = new Intl.DateTimeFormat(locale, { year: 'numeric', month: 'short', day: 'numeric' });
+---
+
+<section class="py-16" data-source={source}>
+  <div class="container mx-auto px-4">
+    <div class="flex items-baseline justify-between">
+      <h2 class="text-2xl font-bold text-brand">{t.latest.title}</h2>
+      <a
+        href="https://www.instagram.com/theplayablenetwork"
+        class="text-sm font-medium text-brand-accent hover:underline"
+      >
+        {t.latest.followCta} →
+      </a>
+    </div>
+    <div class="mt-8 grid gap-6 md:grid-cols-3">
+      {
+        items.map((item) => (
+          <article class="overflow-hidden rounded-lg border border-gray-200 bg-white">
+            <div class="aspect-square bg-gradient-to-br from-brand to-brand-accent">
+              {item.imageUrl && (
+                <img
+                  src={item.imageUrl}
+                  alt=""
+                  class="h-full w-full object-cover"
+                  loading="lazy"
+                />
+              )}
+            </div>
+            <div class="p-4">
+              {item.date && (
+                <p class="text-xs uppercase tracking-wide text-gray-500">
+                  {dateFmt.format(new Date(item.date))}
+                </p>
+              )}
+              <p class="mt-1 text-sm text-gray-800">{item.caption}</p>
+              {item.link && (
+                <a
+                  href={item.link}
+                  class="mt-2 inline-block text-sm font-medium text-brand-accent hover:underline"
+                >
+                  {t.latest.viewOnInstagram} →
+                </a>
+              )}
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

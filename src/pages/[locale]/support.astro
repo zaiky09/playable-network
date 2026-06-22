@@ -1,0 +1,47 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { locales, useTranslations, type Locale } from '@/i18n/config';
+
+export function getStaticPaths() {
+  return locales.map((locale) => ({ params: { locale } }));
+}
+
+const locale = Astro.params.locale as Locale;
+const t = useTranslations(locale);
+const base = `/${locale}`;
+---
+
+<BaseLayout locale={locale} title={t.support.title}>
+  <section class="container mx-auto px-4 py-16">
+    <h1 class="text-4xl font-bold text-brand md:text-5xl">{t.support.title}</h1>
+    <p class="mt-6 max-w-3xl text-lg text-gray-700">{t.support.intro}</p>
+  </section>
+
+  <section class="bg-gray-50 py-16">
+    <div class="container mx-auto px-4">
+      <div class="grid gap-6 md:grid-cols-3">
+        {
+          t.support.ways.map((way) => (
+            <article class="rounded-lg border-t-4 border-brand-accent bg-white p-6 shadow-sm">
+              <h2 class="text-xl font-bold text-brand">{way.title}</h2>
+              <p class="mt-3 text-sm text-gray-700">{way.body}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="container mx-auto px-4 py-16">
+    <div class="rounded-lg bg-brand p-10 text-white">
+      <h2 class="text-2xl font-bold">{t.support.contactTitle}</h2>
+      <p class="mt-3 max-w-2xl text-blue-100">{t.support.contactBody}</p>
+      <a
+        href={`${base}/contact`}
+        class="mt-6 inline-block rounded bg-brand-accent px-5 py-2.5 font-semibold text-white hover:bg-brand-accent-dark"
+      >
+        {t.support.ctaText}
+      </a>
+    </div>
+  </section>
+</BaseLayout>

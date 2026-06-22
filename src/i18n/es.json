@@ -1,0 +1,75 @@
+{
+  "meta": {
+    "siteName": "PlayAble Network",
+    "defaultDescription": "Desarrollo juvenil a través del fútbol en el condado de Turkana, Kenia."
+  },
+  "nav": {
+    "home": "Inicio",
+    "about": "Sobre nosotros",
+    "whatWeDo": "Lo que hacemos",
+    "partners": "Socios",
+    "contact": "Contacto"
+  },
+  "home": {
+    "heroTitle": "PlayAble Network",
+    "heroSubtitle": "Construido a través del juego, impulsado por un propósito.",
+    "heroDescription": "Desarrollo juvenil a través del fútbol en el condado de Turkana, Kenia.",
+    "ctaPrimary": "Ponte en contacto",
+    "ctaSecondary": "Lo que hacemos"
+  },
+  "pillars": [
+    { "title": "Desarrollando talento", "blurb": "[Texto del pilar — describir cómo PlayAble cultiva las habilidades de los jugadores jóvenes.]" },
+    { "title": "Construyendo comunidades más fuertes", "blurb": "[Texto del pilar — describir cómo el fútbol fortalece los lazos comunitarios en Turkana.]" },
+    { "title": "Educación y habilidades para la vida", "blurb": "[Texto del pilar — describir el aprendizaje fuera del campo que acompaña al programa.]" }
+  ],
+  "latest": {
+    "title": "Lo último",
+    "followCta": "Seguir en Instagram",
+    "viewOnInstagram": "Ver en Instagram",
+    "fallback": [
+      { "caption": "Juntos por Turkana — Fútbol para el desarrollo juvenil.", "link": "https://www.instagram.com/theplayablenetwork" },
+      { "caption": "Construyendo comunidades más fuertes, partido a partido.", "link": "https://www.instagram.com/theplayablenetwork" },
+      { "caption": "Desarrollando talento dentro y fuera del campo.", "link": "https://www.instagram.com/theplayablenetwork" }
+    ]
+  },
+  "about": {
+    "title": "Sobre nosotros",
+    "tagline": "Construido a través del juego, impulsado por un propósito.",
+    "intro": "PlayAble Network impulsa el desarrollo juvenil a través del fútbol en el condado de Turkana, Kenia. A través de la formación, la mentoría y las alianzas comunitarias, usamos el deporte como vehículo de oportunidad.",
+    "storyTitle": "Nuestra historia",
+    "story": "[Historia de origen — cuándo y por qué se fundó PlayAble Network, quién lo hizo, y el momento que detonó el trabajo.]",
+    "missionTitle": "Nuestra misión",
+    "mission": "[Declaración de misión — el cambio que PlayAble Network existe para generar, y cómo el fútbol es el vehículo de ese cambio.]",
+    "teamTitle": "Nuestro equipo",
+    "teamIntro": "Las personas que ejecutan los programas en el terreno cada día.",
+    "boardTitle": "Nuestra junta",
+    "boardIntro": "Gobernanza y orientación estratégica de la organización.",
+    "legalTitle": "Legal y registro",
+    "legal": "[Detalles de registro — número de registro de ONG, país de registro, año de fundación, estado de caridad.]"
+  },
+  "whatWeDo": {
+    "title": "Lo que hacemos",
+    "intro": "Tres pilares guían nuestro trabajo en el condado de Turkana."
+  },
+  "partners": {
+    "title": "Nuestros socios",
+    "intro": "Trabajamos junto a clubes locales, escuelas y organizaciones comunitarias para hacer posible el fútbol juvenil."
+  },
+  "contact": {
+    "title": "Contacto",
+    "intro": "Nos encantaría saber de ti.",
+    "formName": "Tu nombre",
+    "formEmail": "Correo electrónico",
+    "formMessage": "Mensaje",
+    "formSubmit": "Enviar mensaje",
+    "formSuccess": "Gracias — te responderemos pronto.",
+    "formError": "Algo salió mal. Por favor intenta de nuevo o escríbenos directamente.",
+    "directEmail": "Correo",
+    "directLocation": "Ubicación",
+    "directSocials": "Encuéntranos en"
+  },
+  "footer": {
+    "copyright": "© 2026 PlayAble Network",
+    "tagline": "Construido a través del juego, impulsado por un propósito."
+  }
+}

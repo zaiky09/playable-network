@@ -1,0 +1,131 @@
+---
+import { isRTL, useTranslations, locales, type Locale } from '@/i18n/config';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import '@/styles/global.css';
+
+interface Props {
+  locale: Locale;
+  title?: string;
+  description?: string;
+}
+
+const { locale, title, description } = Astro.props;
+const t = useTranslations(locale);
+const dir = isRTL(locale) ? 'rtl' : 'ltr';
+const pageTitle = title ? `${title} — ${t.meta.siteName}` : t.meta.siteName;
+const pageDesc = description ?? t.meta.defaultDescription;
+
+// Absolute URLs — required for OG image, Twitter card, hreflang, and JSON-LD.
+// Astro.site is configured in astro.config.mjs; fall back to current URL in case
+// the site is being served from an unexpected origin (e.g. preview deploy).
+const siteOrigin = Astro.site ?? Astro.url;
+const ogImageUrl = new URL('/og-image.png', siteOrigin).href;
+const logoUrl = new URL('/logo.png', siteOrigin).href;
+const canonicalUrl = new URL(Astro.url.pathname, siteOrigin).href;
+
+// Strip the leading /<locale> from the pathname so we can generate the same
+// route for each alternate locale for hreflang.
+const pathWithoutLocale = Astro.url.pathname.replace(/^\/[a-z]{2}(?=\/|$)/, '') || '/';
+
+const ogLocaleMap: Record<Locale, string> = {
+  en: 'en_US',
+  sw: 'sw_KE',
+  fr: 'fr_FR',
+  ar: 'ar_AR',
+  es: 'es_ES',
+};
+
+const orgJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'NGO',
+  name: 'PlayAble Network',
+  alternateName: 'The PlayAble Network',
+  description: 'Youth development through football in Turkana County, Kenya.',
+  url: siteOrigin instanceof URL ? siteOrigin.href : String(siteOrigin),
+  logo: logoUrl,
+  image: ogImageUrl,
+  email: 'playablenetwork.ke@gmail.com',
+  address: {
+    '@type': 'PostalAddress',
+    addressRegion: 'Turkana County',
+    addressCountry: 'KE',
+  },
+  sameAs: ['https://www.instagram.com/theplayablenetwork'],
+};
+---
+
+<!doctype html>
+<html lang={locale} dir={dir}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDesc} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Icons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+    <!-- PWA manifest + theme -->
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#1d4ed8" />
+
+    <!-- Preload critical above-the-fold assets -->
+    <link rel="preload" as="image" href="/logo.png" fetchpriority="high" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Sans+Arabic:wght@400;600;700&display=swap"
+    />
+
+    <!-- hreflang alternates for multilingual SEO -->
+    {
+      locales.map((loc) => (
+        <link
+          rel="alternate"
+          hreflang={loc}
+          href={new URL(`/${loc}${pathWithoutLocale}`, siteOrigin).href}
+        />
+      ))
+    }
+    <link rel="alternate" hreflang="x-default" href={new URL(`/en${pathWithoutLocale}`, siteOrigin).href} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDesc} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content={t.meta.siteName} />
+    <meta property="og:locale" content={ogLocaleMap[locale]} />
+    {
+      locales
+        .filter((l) => l !== locale)
+        .map((loc) => <meta property="og:locale:alternate" content={ogLocaleMap[loc]} />)
+    }
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={`${t.meta.siteName} — ${t.footer.tagline}`} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDesc} />
+    <meta name="twitter:image" content={ogImageUrl} />
+    <meta name="twitter:image:alt" content={`${t.meta.siteName} — ${t.footer.tagline}`} />
+
+    <!-- Schema.org Organization (JSON-LD) -->
+    <script type="application/ld+json" set:html={JSON.stringify(orgJsonLd)} />
+  </head>
+  <body class="flex min-h-screen flex-col">
+    <Header locale={locale} />
+    <main class="flex-1"><slot /></main>
+    <Footer locale={locale} />
+  </body>
+</html>

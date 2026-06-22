@@ -1,0 +1,235 @@
+{
+  "meta": {
+    "siteName": "PlayAble Network",
+    "defaultDescription": "PlayAble Network — kujenga njia za maendeleo ya vijana kupitia michezo, ushauri, na ushirikiano wa kijamii."
+  },
+  "nav": {
+    "home": "Nyumbani",
+    "about": "Kuhusu",
+    "programs": "Programu",
+    "impact": "Athari",
+    "partners": "Ushirikiano",
+    "contact": "Wasiliana",
+    "support": "Saidia Kazi Yetu",
+    "news": "Habari na Masasisho",
+    "governance": "Utawala"
+  },
+  "home": {
+    "heroTitle": "PlayAble Network",
+    "heroSubtitle": "PLAY · EMPOWER · TRANSFORM",
+    "heroDescription": "PlayAble Network inawawezesha watoto na vijana katika jamii zilizo na uhitaji kupitia michezo, ushauri, na programu zinazoongozwa na jamii zinazoleta fursa za ukuaji, ushirikishwaji, na mabadiliko chanya.",
+    "ctaPrimary": "Saidia Kazi Yetu",
+    "ctaSecondary": "Programu Zetu",
+    "missionTitle": "Kila mtoto anastahili nafasi ya kucheza, kujifunza, kukua, na kustawi.",
+    "missionBody": "Kupitia michezo, ushauri, na ushirikiano wa kijamii, PlayAble Network inaunda njia za vijana katika jamii zilizo na uhitaji kuendeleza uwezo wao na kujenga mustakabali bora.",
+    "highlightsTitle": "Athari za Hivi Karibuni",
+    "highlights": [
+      { "stat": "42", "label": "Washiriki katika Kaunti ya Mombasa" },
+      { "stat": "36", "label": "Wavulana (10–16) katika majaribio ya Turkana" },
+      { "stat": "2", "label": "Programu za jamii zilizotolewa" }
+    ]
+  },
+  "pillars": [
+    {
+      "title": "Michezo kwa Maendeleo",
+      "blurb": "Kutumia michezo kama nyenzo ya kujenga ujuzi wa maisha, ujasiri, nidhamu, kazi ya pamoja, uongozi, na ushirikishwaji wa kijamii."
+    },
+    {
+      "title": "Elimu na Ushauri",
+      "blurb": "Kutoa fursa za kujifunza, mwongozo, na programu za maendeleo ya kibinafsi zinazosaidia vijana kufikia uwezo wao kamili."
+    },
+    {
+      "title": "Athari kwa Jamii",
+      "blurb": "Kuunda mipango salama, inayojumuisha, na endelevu inayoimarisha jamii na kuboresha ustawi wa watoto na familia."
+    }
+  ],
+  "about": {
+    "title": "Kuhusu Sisi",
+    "tagline": "Kujenga njia za maendeleo ya vijana kupitia michezo, ushauri, na ushirikiano wa kijamii.",
+    "intro": "PlayAble Network ni mpango wa maendeleo ya vijana unaotumia michezo kama jukwaa la ushirikishwaji, ushauri, ujifunzaji, na maendeleo chanya ya kijamii.",
+    "storyTitle": "Sisi ni Nani",
+    "storyBody": "Iliyoanzishwa kutokana na imani kwamba michezo inaweza kutoa zaidi ya burudani, PlayAble Network inafanya kazi pamoja na jamii, familia, shule, mashirika ya kijamii, na washirika wa ndani kuunda fursa zilizoratibiwa kwa vijana kujifunza, kukua, na kushiriki vyema ndani ya jamii zao.\n\nProgramu zetu zinachanganya michezo, ushauri, ulinzi wa watoto, na ushirikiano wa kijamii kuunda mazingira ya kuunga mkono ambapo vijana wanaweza kujenga ujasiri, kuimarisha mahusiano ya kijamii, kuendeleza ujuzi wa maisha, na kufuata njia chanya za ukuaji.\n\nPlayAble Network ilianzishwa kuonyesha jinsi programu za michezo zilizoratibiwa zinavyoweza kuimarisha ushiriki wa vijana, ushirikiano wa kijamii, ushauri, na maendeleo ya uwezo wa ndani huku zikileta fursa zinazoenda zaidi ya uwanja wa mchezo.",
+    "visionTitle": "Maono",
+    "visionBody": "Kuona vijana wakiwezeshwa kupitia michezo, wakiungwa mkono na jamii zao, na walio na vifaa vya kufikia uwezo wao.",
+    "missionTitle": "Dhamira",
+    "missionBody": "Kutumia michezo, ushauri, na ushirikiano wa kijamii kama jukwaa la kivitendo la maendeleo ya vijana, ujifunzaji, na ushiriki chanya.",
+    "teamTitle": "Timu ya Uongozi",
+    "teamIntro": "Watu wanaoendesha kazi uwanjani kila siku.",
+    "teamMembers": [
+      {
+        "name": "Racheal Claire Wachira",
+        "role": "Mwanzilishi na Mkurugenzi Mtendaji",
+        "bio": "Hutoa uongozi wa kimkakati, usimamizi wa shirika, ushirikiano na wadau, ushirikiano, na uratibu wa programu."
+      },
+      {
+        "name": "Remy Sheikh",
+        "role": "Mkurugenzi wa Programu",
+        "bio": "Anaongoza muundo wa programu, utekelezaji, ujumuishaji wa ushauri, na shughuli za maendeleo ya vijana zinazotegemea mpira wa miguu."
+      },
+      {
+        "name": "Ray Mwaniki",
+        "role": "Mkuu wa Maendeleo ya Kiufundi wa Mpira",
+        "bio": "Hutoa mwongozo wa kiufundi wa mpira wa miguu, msaada wa makocha, usimamizi wa maendeleo ya wachezaji, na utaalam wa mpira wa miguu wa msingi."
+      },
+      {
+        "name": "Juliana Angela",
+        "role": "Mkuu wa Ushirikiano wa Kijamii na Ushirikiano",
+        "bio": "Anasaidia uhamasishaji wa jamii, ushirikiano wa wazazi, mahusiano na wadau, na maendeleo ya ushirikiano."
+      }
+    ]
+  },
+  "programs": {
+    "title": "Programu Zetu",
+    "intro": "PlayAble Network inatumia mpira wa miguu kama mlango wa maendeleo ya vijana, maendeleo ya makocha, na ushirikiano wa kijamii.",
+    "areasTitle": "Maeneo ya Programu",
+    "areas": [
+      { "title": "Programu za Mpira wa Vijana", "body": "Shughuli za mpira zilizoratibiwa zinazohamasisha ushiriki, kazi ya pamoja, nidhamu, ujasiri, na maendeleo ya kibinafsi." },
+      { "title": "Ushauri na Ujuzi wa Maisha", "body": "Mifano chanya na fursa za kujifunza zinazounga mkono maendeleo ya tabia, uamuzi, uongozi, na ustahimilivu." },
+      { "title": "Maendeleo ya Makocha", "body": "Kusaidia makocha wa msingi kupitia mafunzo, ushauri, ufahamu wa ulinzi wa watoto, na mbinu za makocha zinazomlenga kijana." },
+      { "title": "Ushirikiano wa Kijamii", "body": "Kufanya kazi na wazazi, walezi, viongozi wa jamii, shule, na washirika wa ndani kuhakikisha programu zinajengwa kwenye mahitaji ya jamii." },
+      { "title": "Ulinzi na Ustawi wa Washiriki", "body": "Kukuza mazingira salama, yenye ushirikishwaji, kupitia desturi wazi za ulinzi na hatua za ulinzi wa washiriki." },
+      { "title": "Maendeleo ya Ushirikiano", "body": "Kushirikiana na mashirika, taasisi, na wadau wa kijamii kupanua fursa kwa vijana." }
+    ],
+    "modelTitle": "Mfumo Wetu wa Programu",
+    "modelIntro": "Mpira wa miguu ni mlango. Kila hatua inajengwa juu ya iliyotangulia kuunda athari za muda mrefu kwa jamii.",
+    "modelSteps": [
+      { "title": "Ushiriki wa Vijana", "body": "Shughuli za mpira na ushauri zilizoratibiwa zinazotoa fursa chanya za kujifunza, kukua, na kushiriki." },
+      { "title": "Maendeleo ya Makocha", "body": "Mafunzo na msaada wa makocha wa msingi kuimarisha uwezo wa ndani, ufahamu wa ulinzi, na mbinu za makocha zinazomlenga kijana." },
+      { "title": "Mashindano ya Jamii", "body": "Fursa zilizoratibiwa za ushiriki kupitia tamasha la mpira, mashindano, na njia za mashindano za kijamii." },
+      { "title": "Ushirikiano na Fursa", "body": "Ushirikiano unaopanua fursa kwa vijana huku ukiimarisha mfumo wa mpira kwa upana zaidi." },
+      { "title": "Athari kwa Jamii", "body": "Kuimarisha uwezo wa ndani na kuunda mabadiliko chanya ya kudumu katika jamii tunazohudumia." }
+    ],
+    "visionTitle": "Maono ya Muda Mrefu",
+    "visionBody": "Mtandao wa programu za mpira wa miguu za kijamii ambapo vijana wanaendelea kupitia ushiriki ulioratibiwa, makocha wanaimarishwa, na jamii zinachukua umiliki hai wa maendeleo ya vijana kupitia michezo."
+  },
+  "impact": {
+    "title": "Athari na Hadithi",
+    "intro": "Programu halisi, jamii halisi, vijana halisi. Kila mpango unajengwa kwenye ushirikiano wa ndani na unapimwa kwa ushiriki, ulinzi, na umiliki wa kudumu wa jamii.",
+    "programmes": [
+      {
+        "slug": "mombasa",
+        "name": "Programu ya Mpira wa Vijana na Ushauri ya Jamii",
+        "location": "Kaunti ya Mombasa",
+        "partner": "Gators Academy",
+        "summary": "Programu ya mpira wa miguu na maendeleo ya vijana ya kijamii iliyoundwa na kutekelezwa na Gators Academy, ikilenga vijana walio katika mazingira magumu.",
+        "body": "Ikianza na kikundi kidogo cha washiriki, mpango ulikua na kusaidia wavulana na wasichana 42 katika makundi tofauti ya umri. Shughuli zilifanywa wakati wote wa wiki na zikatoa mazingira yaliyoratibiwa ambapo vijana waliweza kujifunza, kushirikiana, na kushiriki katika shughuli chanya za kijamii huku wakikuza kazi ya pamoja, nidhamu, na uwajibikaji wa kibinafsi.",
+        "highlights": [
+          "Washiriki 42",
+          "Makundi mengi ya umri",
+          "Vipindi vya mafunzo ya mpira vilivyoratibiwa",
+          "Shughuli za ushauri",
+          "Ushirikishwaji wa jamii na familia",
+          "Mazingira salama ya ushiriki"
+        ]
+      },
+      {
+        "slug": "turkana",
+        "name": "Majaribio ya Mpira wa Vijana wa Ushirikishwaji",
+        "location": "Lodwar, Kaunti ya Turkana",
+        "partner": "Hill Side FC",
+        "summary": "Majaribio ya mpira wa vijana wa ushirikishwaji uliotekelezwa na Hill Side FC, ukichanganya mpira, ushauri, ushirikiano wa kijamii, na shughuli zenye msingi wa ulinzi.",
+        "body": "Majaribio yalibuniwa kupima mtindo wa mpira na ushauri wa kijamii unaolenga ushirikiano wa ndani, ushirikishwaji wa wazazi, na ustawi wa washiriki. Wavulana thelathini na sita wenye umri wa miaka 10–16 walishiriki katika vipindi vya mafunzo ya mpira na shughuli za ushauri, na wazazi na walezi walishirikishwa tangu mwanzo.",
+        "highlights": [
+          "Wavulana 36 wenye umri wa miaka 10–16",
+          "Vipindi vya mafunzo ya mpira na ushauri",
+          "Shughuli za timu",
+          "Ushirikishwaji wa wazazi na walezi",
+          "Lengo la ulinzi na ustawi",
+          "Maendeleo ya ushirikiano wa kijamii"
+        ]
+      }
+    ]
+  },
+  "partners": {
+    "title": "Ushirikiano",
+    "intro": "PlayAble Network inafanya kazi na mashirika ya ndani, makocha, wazazi, na wadau wa kijamii kuunga mkono utekelezaji wa programu na kuimarisha mipango ya maendeleo ya vijana.",
+    "keyTitle": "Washirika Muhimu",
+    "list": [
+      {
+        "name": "Gators Academy",
+        "location": "Kaunti ya Mombasa",
+        "description": "Mshirika wa kijamii anayeunga mkono mpira wa miguu, ushauri, na ushirikishwaji wa vijana Mombasa."
+      },
+      {
+        "name": "Hill Side FC",
+        "location": "Lodwar, Kaunti ya Turkana",
+        "description": "Mshirika wa utekelezaji anayeunga mkono utoaji wa programu, ufundishaji, na ushirikiano wa kijamii Turkana.",
+        "established": "Tangu 2012"
+      }
+    ],
+    "footer": "Programu zetu zinaimarishwa zaidi kupitia ushiriki hai wa wazazi, walezi, makocha, na viongozi wa jamii. Iwapo ungependa kushirikiana nasi, wasiliana nasi.",
+    "ctaText": "Kuwa mshirika"
+  },
+  "governance": {
+    "title": "Utawala na Kufuata Kanuni",
+    "intro": "Ushiriki salama ni msingi wa shughuli zote za PlayAble Network na ushirikiano. Ulinzi umejumuishwa katika kupanga, kutekeleza, kufuatilia, na kuripoti programu.",
+    "safeguardingTitle": "Ulinzi na Uwajibikaji",
+    "safeguardingItems": [
+      "Taratibu za ulinzi wa watoto",
+      "Mfumo wa usajili wa washiriki",
+      "Michakato ya ridhaa ya wazazi na walezi",
+      "Kanuni za maadili za waelekezi",
+      "Kanuni za maadili za washiriki",
+      "Taratibu za usimamizi wa hatari",
+      "Mazoea ya kuwajibika ya upigaji picha na vyombo vya habari",
+      "Mifumo ya ushirikiano wa jamii na uwajibikaji"
+    ],
+    "safeguardingFooter": "Mambo ya ulinzi yamejumuishwa katika kupanga, utekelezaji, ufuatiliaji, na uripotaji wa programu, na yanabaki sehemu ya msingi ya shughuli zote.",
+    "complianceTitle": "Usajili na Kufuata Kanuni",
+    "complianceBody": "Nyaraka za usajili wa NGO na kufuata kanuni zinafanyiwa kazi na zitachapishwa hapa zikishakamilika. Mashirika washirika wanaofanya uchunguzi wanaweza kuomba nyaraka za hivi punde kupitia barua pepe."
+  },
+  "support": {
+    "title": "Saidia Kazi Yetu",
+    "intro": "Kila mchango unasaidia kuunda fursa zaidi kwa vijana kucheza, kujifunza, na kukua. Kuna njia kadhaa za kusaidia PlayAble Network.",
+    "ways": [
+      {
+        "title": "Toa Mchango",
+        "body": "Msaada wa moja kwa moja wa kifedha unaoenda katika utekelezaji wa programu, vifaa, mafunzo ya ulinzi, na ujenzi wa uwezo. Wasiliana nasi kwa njia za sasa za kutoa."
+      },
+      {
+        "title": "Shirikiana Nasi",
+        "body": "Ushirikiano wa kimkakati na wakfu, biashara, vilabu vya michezo, na mashirika yenye dhamira sawa. Tunatafuta washirika wanaoshiriki dhamira yetu."
+      },
+      {
+        "title": "Jitolee",
+        "body": "Toa ushauri, fundisha, au changia ujuzi wa kitaaluma kwa programu uwanjani. Tunakaribisha hasa: walimu wa makocha, wataalamu wa ulinzi, na wataalamu wa mawasiliano."
+      }
+    ],
+    "contactTitle": "Wasiliana nasi",
+    "contactBody": "Wasiliana ili tujadiliane jinsi ungependa kusaidia kazi yetu — kila mazungumzo huanza na ujumbe.",
+    "ctaText": "Wasiliana nasi"
+  },
+  "contact": {
+    "title": "Wasiliana Nasi",
+    "intro": "Tungependa kusikia kutoka kwako — kwa ushirikiano, maswali ya programu, au njia yoyote ya kusaidia kazi.",
+    "formName": "Jina lako",
+    "formEmail": "Anwani ya barua pepe",
+    "formMessage": "Ujumbe",
+    "formSubmit": "Tuma ujumbe",
+    "formSuccess": "Asante — tutawasiliana nawe hivi karibuni.",
+    "formError": "Kitu kimekosea. Tafadhali jaribu tena au tuma barua pepe moja kwa moja.",
+    "directEmail": "Barua pepe",
+    "directPhone": "Simu",
+    "directAddress": "Anwani",
+    "directSocials": "Tupate kwenye",
+    "addressLine": "Kindaruma Road, Nairobi, Kenya"
+  },
+  "latest": {
+    "title": "Mpya",
+    "followCta": "Fuata kwenye Instagram",
+    "viewOnInstagram": "Tazama kwenye Instagram",
+    "fallback": [
+      { "caption": "Pamoja kwa Turkana — Mpira wa Miguu kwa Maendeleo ya Vijana na Hill Side FC.", "link": "https://www.instagram.com/theplayablenetwork" },
+      { "caption": "Mpira wa miguu wa kijamii Kaunti ya Mombasa na Gators Academy.", "link": "https://www.instagram.com/theplayablenetwork" },
+      { "caption": "Vipindi vya maendeleo ya makocha — kuimarisha uwezo wa ndani kupitia mafunzo yaliyoratibiwa.", "link": "https://www.instagram.com/theplayablenetwork" }
+    ]
+  },
+  "footer": {
+    "copyright": "© 2026 The PlayAble Network. Haki zote zimehifadhiwa.",
+    "tagline": "Imejengwa kupitia mchezo, ikiongozwa na lengo.",
+    "addressLine": "Kindaruma Road, Nairobi, Kenya",
+    "exploreTitle": "Vinjari",
+    "connectTitle": "Wasiliana",
+    "policiesTitle": "Kuhusu"
+  }
+}

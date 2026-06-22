@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand palette — sampled from the PlayAble Network official logo.
+     Logo has a navy→cyan blue family on the "Play" side and a red→orange→gold
+     warm family on the "Able" side. We expose the full range so components can
+     pick the right token per surface (headings, CTAs, accents, highlights). */
+
+  /* Primary (navy / royal blue) — used for "Play" and "NETW" in the wordmark */
+  --color-brand: #1d4ed8;          /* primary blue (blue-700) */
+  --color-brand-dark: #1e3a8a;     /* deeper for hover / emphasis (blue-800) */
+  --color-brand-light: #3b82f6;    /* mid blue (blue-500) */
+
+  /* Cyan accent — the swoosh on the "y" */
+  --color-brand-cyan: #06b6d4;     /* cyan-500 */
+
+  /* Warm accent (red→orange) — used for "Able" and "ORK" */
+  --color-brand-accent: #ea580c;       /* primary orange (orange-600) */
+  --color-brand-accent-dark: #c2410c;  /* deeper red-orange (orange-700) */
+  --color-brand-accent-light: #f97316; /* mid orange (orange-500) */
+
+  /* Gold highlight — the stars / sparkles around the "A" */
+  --color-brand-gold: #fbbf24;     /* amber-400 */
+
+  /* Typography */
+  --font-sans: "Noto Sans", system-ui, sans-serif;
+  --font-arabic: "Noto Sans Arabic", system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: #111827;
+  -webkit-font-smoothing: antialiased;
+}
+
+html[dir="rtl"] body {
+  font-family: var(--font-arabic);
+}

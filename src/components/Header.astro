@@ -1,0 +1,43 @@
+---
+import { useTranslations, type Locale } from '@/i18n/config';
+import Logo from './Logo.astro';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+const base = `/${locale}`;
+---
+
+<header class="border-b border-gray-200 bg-white">
+  <nav class="container mx-auto flex items-center justify-between gap-4 px-4 py-3">
+    <a
+      href={`${base}/`}
+      class="inline-flex shrink-0 items-center rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2"
+      aria-label={`${t.meta.siteName} — ${t.nav.home}`}
+    >
+      <Logo locale={locale} size="md" />
+    </a>
+
+    <ul class="hidden gap-5 text-sm font-medium lg:flex">
+      <li><a href={`${base}/about`} class="text-gray-700 hover:text-brand">{t.nav.about}</a></li>
+      <li><a href={`${base}/programs`} class="text-gray-700 hover:text-brand">{t.nav.programs}</a></li>
+      <li><a href={`${base}/impact`} class="text-gray-700 hover:text-brand">{t.nav.impact}</a></li>
+      <li><a href={`${base}/partners`} class="text-gray-700 hover:text-brand">{t.nav.partners}</a></li>
+      <li><a href={`${base}/contact`} class="text-gray-700 hover:text-brand">{t.nav.contact}</a></li>
+    </ul>
+
+    <div class="flex items-center gap-3">
+      <a
+        href={`${base}/support`}
+        class="hidden rounded bg-brand-accent px-4 py-2 text-sm font-semibold text-white hover:bg-brand-accent-dark md:inline-block"
+      >
+        {t.nav.support}
+      </a>
+      <LanguageSwitcher currentLocale={locale} />
+    </div>
+  </nav>
+</header>
