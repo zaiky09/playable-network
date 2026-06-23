@@ -96,7 +96,9 @@ No API key needed — Behold's JSON feed endpoint is public. The free tier cover
 
 If the NGO wants to curate which posts appear instead of all-recent, leave Behold off and use Sanity's `Latest Post` document type — those override the Instagram feed.
 
-**Local preview without signing up:** set `INSTAGRAM_MOCK=true` in `.env`. The `LatestGrid` will swap in 3 realistic fixture posts (matching Behold's exact response shape) so you can see the auto-pull layout, image cards, captions, dates, and Instagram links rendered. Useful for stakeholder demos before the NGO connects Behold. The section will render with `data-source="behold"` exactly as it would with real data. Remove or set to `false` before deploying to production.
+**Local preview without Behold:** set `INSTAGRAM_MOCK=true` in `.env`. The `LatestGrid` will swap in 3 realistic fixture posts (matching Behold's exact response shape) so you can see the auto-pull layout, image cards, captions, dates, and Instagram links rendered. Useful for offline development. The section will render with `data-source="behold"` exactly as it would with real data. Remove or set to `false` to use the live Behold feed.
+
+**Current Behold connection (live):** the production site is wired to feed `8T9xKL6TlFKoYzIY5x82` for `@theplayablenetwork`. The env var is set in Vercel for Production + Development environments. To rotate to a different feed: update `PUBLIC_BEHOLD_FEED_ID` in both Vercel env settings and local `.env`, then redeploy.
 
 ### Airtable (inquiry records)
 
