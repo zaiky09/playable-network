@@ -5,14 +5,18 @@ import LanguageSwitcher from './LanguageSwitcher.astro';
 
 interface Props {
   locale: Locale;
+  isHomePage?: boolean;
 }
 
-const { locale } = Astro.props;
+const { locale, isHomePage = false } = Astro.props;
 const t = useTranslations(locale);
 const base = `/${locale}`;
+const pathname = Astro.url.pathname;
+const pathWithoutLocale = pathname.replace(/^\/[a-z]{2}(?=\/|$)/, '') || '/';
+const navLinkClass = (path: string) => `text-black font-semibold hover:text-brand-gold ${pathWithoutLocale === path ? 'text-brand-accent underline underline-offset-8 decoration-brand-accent' : ''}`;
 ---
 
-<header class="border-b border-gray-200 bg-white">
+<header class={`relative z-30 transition ${isHomePage ? 'absolute inset-x-0 top-0 border-none bg-transparent md:bg-black/10 md:backdrop-blur-sm' : 'border-b border-gray-200 bg-white'}`}>
   <nav class="container mx-auto flex items-center justify-between gap-4 px-4 py-3">
     <a
       href={`${base}/`}
@@ -22,12 +26,12 @@ const base = `/${locale}`;
       <Logo locale={locale} size="md" />
     </a>
 
-    <ul class="hidden gap-5 text-sm font-medium lg:flex">
-      <li><a href={`${base}/about`} class="text-gray-700 hover:text-brand">{t.nav.about}</a></li>
-      <li><a href={`${base}/programs`} class="text-gray-700 hover:text-brand">{t.nav.programs}</a></li>
-      <li><a href={`${base}/impact`} class="text-gray-700 hover:text-brand">{t.nav.impact}</a></li>
-      <li><a href={`${base}/partners`} class="text-gray-700 hover:text-brand">{t.nav.partners}</a></li>
-      <li><a href={`${base}/contact`} class="text-gray-700 hover:text-brand">{t.nav.contact}</a></li>
+    <ul class="hidden gap-8 text-sm tracking-wide md:flex">
+      <li><a href={`${base}/about`} class={navLinkClass('/about')}>{t.nav.about}</a></li>
+      <li><a href={`${base}/programs`} class={navLinkClass('/programs')}>{t.nav.programs}</a></li>
+      <li><a href={`${base}/impact`} class={navLinkClass('/impact')}>{t.nav.impact}</a></li>
+      <li><a href={`${base}/partners`} class={navLinkClass('/partners')}>{t.nav.partners}</a></li>
+      <li><a href={`${base}/contact`} class={navLinkClass('/contact')}>{t.nav.contact}</a></li>
     </ul>
 
     <div class="flex items-center gap-3">

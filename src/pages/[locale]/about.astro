@@ -12,17 +12,61 @@ const base = `/${locale}`;
 ---
 
 <BaseLayout locale={locale} title={t.about.title}>
-  <section class="container mx-auto px-4 py-16">
-    <h1 class="text-4xl font-bold text-brand md:text-5xl">{t.about.title}</h1>
-    <p class="mt-4 text-xl font-medium text-brand-accent">{t.about.tagline}</p>
-    <p class="mt-6 max-w-3xl text-lg text-gray-700">{t.about.intro}</p>
+  <section class="relative isolate overflow-hidden bg-brand-dark text-white">
+    <video
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+      poster="/video/impact-poster.jpg"
+      aria-hidden="true"
+      class="absolute inset-0 -z-10 h-full w-full object-cover motion-reduce:hidden"
+      disablepictureinpicture
+    >
+      <source src="/video/AboutUs.mp4" type="video/mp4" />
+    </video>
+
+    <div
+      aria-hidden="true"
+      class="absolute inset-0 -z-10 bg-gradient-to-br from-brand-dark/85 via-brand-dark/75 to-brand-accent/40"
+    ></div>
+
+    <div class="container mx-auto flex min-h-[70vh] flex-col justify-center px-4 py-24 md:min-h-[75vh]">
+      <p class="text-sm font-semibold uppercase tracking-[0.3em] text-brand-gold drop-shadow">
+        Our story
+      </p>
+      <h1 class="mt-4 text-4xl font-bold leading-tight tracking-tight text-white drop-shadow-lg md:text-6xl lg:text-7xl">
+        {t.about.title}
+      </h1>
+      <p class="mt-6 max-w-3xl text-xl font-medium text-brand-accent drop-shadow md:text-2xl">
+        {t.about.tagline}
+      </p>
+      <p class="mt-6 max-w-3xl text-lg text-white/90 drop-shadow md:text-xl">
+        {t.about.intro}
+      </p>
+    </div>
   </section>
 
   <section class="bg-gray-50 py-16">
     <div class="container mx-auto px-4">
-      <h2 class="text-2xl font-bold text-brand">{t.about.storyTitle}</h2>
-      <div class="mt-6 max-w-3xl space-y-4 text-gray-700">
-        {t.about.storyBody.split('\n\n').map((p) => <p>{p}</p>)}
+      <div class="grid gap-10 md:grid-cols-2 md:items-center">
+        <div>
+          <h2 class="text-2xl font-bold text-brand">{t.about.storyTitle}</h2>
+          <div class="mt-6 space-y-4 text-gray-700">
+            {t.about.storyBody.split('\n\n').map((p) => <p>{p}</p>)}
+          </div>
+        </div>
+        <div class="overflow-hidden rounded-2xl shadow-lg">
+          <img
+            src="/photos/WhoWeAre.jpg"
+            alt="PlayAble Network team and community members"
+            width="500"
+            height="500"
+            class="h-full w-full object-cover"
+            loading="lazy"
+          />
+        </div>
       </div>
     </div>
   </section>
