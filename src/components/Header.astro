@@ -26,6 +26,19 @@ const navLinkClass = (path: string) => `text-black font-semibold hover:text-bran
       <Logo locale={locale} size="md" />
     </a>
 
+    <button
+      id="mobile-menu-button"
+      type="button"
+      aria-controls="mobile-menu"
+      aria-expanded="false"
+      class="inline-flex items-center justify-center rounded border border-gray-200 p-2 text-gray-700 transition hover:bg-gray-100 md:hidden"
+    >
+      <span class="sr-only">Open navigation menu</span>
+      <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+
     <ul class="hidden gap-8 text-sm tracking-wide md:flex">
       <li><a href={`${base}/about`} class={navLinkClass('/about')}>{t.nav.about}</a></li>
       <li><a href={`${base}/programs`} class={navLinkClass('/programs')}>{t.nav.programs}</a></li>
@@ -43,5 +56,30 @@ const navLinkClass = (path: string) => `text-black font-semibold hover:text-bran
       </a>
       <LanguageSwitcher currentLocale={locale} />
     </div>
+  </nav>
+
+  <div id="mobile-menu" class="hidden border-t border-gray-200 bg-white md:hidden">
+    <div class="space-y-3 px-4 py-4">
+      <a href={`${base}/about`} class="block rounded px-3 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-100">{t.nav.about}</a>
+      <a href={`${base}/programs`} class="block rounded px-3 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-100">{t.nav.programs}</a>
+      <a href={`${base}/impact`} class="block rounded px-3 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-100">{t.nav.impact}</a>
+      <a href={`${base}/partners`} class="block rounded px-3 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-100">{t.nav.partners}</a>
+      <a href={`${base}/contact`} class="block rounded px-3 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-100">{t.nav.contact}</a>
+      <a href={`${base}/support`} class="block rounded bg-brand-accent px-3 py-2 text-sm font-semibold text-white hover:bg-brand-accent-dark">{t.nav.support}</a>
+    </div>
+  </div>
+
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+      const button = document.getElementById('mobile-menu-button');
+      const menu = document.getElementById('mobile-menu');
+      if (!button || !menu) return;
+
+      button.addEventListener('click', () => {
+        const isHidden = menu.classList.toggle('hidden');
+        button.setAttribute('aria-expanded', String(!isHidden));
+      });
+    });
+  </script>
   </nav>
 </header>
