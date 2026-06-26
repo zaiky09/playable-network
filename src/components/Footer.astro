@@ -10,6 +10,21 @@ interface Props {
 const { locale } = Astro.props;
 const t = useTranslations(locale);
 const base = `/${locale}`;
+
+// Single source of truth for the main nav set — mirrors the Header desktop
+// nav exactly so users see the same options in both surfaces.
+const mainNav = [
+  { href: `${base}/about`,     label: t.nav.about },
+  { href: `${base}/framework`, label: t.nav.framework },
+  { href: `${base}/programs`,  label: t.nav.programs },
+  { href: `${base}/impact`,    label: t.nav.impact },
+  { href: `${base}/partners`,  label: t.nav.partners },
+  { href: `${base}/contact`,   label: t.nav.contact },
+];
+
+// Hover color matches the Header (text-brand-gold). Centralised so a future
+// recolor is one line.
+const linkClass = 'font-semibold transition hover:text-brand-gold';
 ---
 
 <footer class="bg-slate-950 text-slate-100">
@@ -22,7 +37,7 @@ const base = `/${locale}`;
         <div class="mt-6 space-y-3 text-sm text-slate-400">
           <p>{t.footer.addressLine}</p>
           <p>
-            <a href="mailto:playablenetwork.ke@gmail.com" class="inline-flex items-center text-slate-100 transition hover:text-brand hover:underline">
+            <a href="mailto:playablenetwork.ke@gmail.com" class={`inline-flex items-center text-slate-100 transition hover:text-brand-gold hover:underline`}>
               playablenetwork.ke@gmail.com
             </a>
           </p>
@@ -32,19 +47,19 @@ const base = `/${locale}`;
       <div>
         <h4 class="text-sm font-bold uppercase tracking-[0.24em] text-slate-100">{t.footer.exploreTitle}</h4>
         <ul class="mt-5 space-y-3 text-sm text-slate-300">
-          <li><a href={`${base}/about`} class="font-semibold transition hover:text-brand">{t.nav.about}</a></li>
-          <li><a href={`${base}/programs`} class="font-semibold transition hover:text-brand">{t.nav.programs}</a></li>
-          <li><a href={`${base}/impact`} class="font-semibold transition hover:text-brand">{t.nav.impact}</a></li>
-          <li><a href={`${base}/partners`} class="font-semibold transition hover:text-brand">{t.nav.partners}</a></li>
+          {
+            mainNav.map((item) => (
+              <li><a href={item.href} class={linkClass}>{item.label}</a></li>
+            ))
+          }
         </ul>
       </div>
 
       <div>
         <h4 class="text-sm font-bold uppercase tracking-[0.24em] text-slate-100">{t.footer.connectTitle}</h4>
         <ul class="mt-5 space-y-3 text-sm text-slate-300">
-          <li><a href={`${base}/contact`} class="font-semibold transition hover:text-brand">{t.nav.contact}</a></li>
-          <li><a href={`${base}/support`} class="font-semibold transition hover:text-brand">{t.nav.support}</a></li>
-          <li><a href={`${base}/governance`} class="font-semibold transition hover:text-brand">{t.nav.governance}</a></li>
+          <li><a href={`${base}/support`} class={linkClass}>{t.nav.support}</a></li>
+          <li><a href={`${base}/governance`} class={linkClass}>{t.nav.governance}</a></li>
         </ul>
       </div>
     </div>
@@ -58,13 +73,11 @@ const base = `/${locale}`;
         <div class="order-2 sm:order-1 text-center text-slate-400 sm:text-left">{t.footer.copyright}</div>
         <div class="order-1 sm:order-2 border-t border-slate-800 pt-4 text-center sm:border-t-0 sm:pt-0 sm:text-right">
           <div class="flex flex-wrap justify-center gap-3 text-sm sm:justify-end">
-            <a href={`${base}/`} class="font-semibold transition hover:text-brand">{t.nav.home}</a>
-            <a href={`${base}/about`} class="font-semibold transition hover:text-brand">{t.nav.about}</a>
-            <a href={`${base}/programs`} class="font-semibold transition hover:text-brand">{t.nav.programs}</a>
-            <a href={`${base}/impact`} class="font-semibold transition hover:text-brand">{t.nav.impact}</a>
-            <a href={`${base}/partners`} class="font-semibold transition hover:text-brand">{t.nav.partners}</a>
-            <a href={`${base}/contact`} class="font-semibold transition hover:text-brand">{t.nav.contact}</a>
-            <a href={`${base}/support`} class="font-semibold transition hover:text-brand">{t.nav.support}</a>
+            <a href={`${base}/`} class={linkClass}>{t.nav.home}</a>
+            {mainNav.map((item) => (
+              <a href={item.href} class={linkClass}>{item.label}</a>
+            ))}
+            <a href={`${base}/support`} class={linkClass}>{t.nav.support}</a>
           </div>
         </div>
       </div>
