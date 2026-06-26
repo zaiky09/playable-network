@@ -13,7 +13,10 @@ export default defineConfig({
   },
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'sw', 'fr', 'ar', 'es'],
+    // Active locales only. Keep this in sync with src/i18n/config.ts. Adding a
+    // locale here without also wiring it in config.ts gives broken hreflang
+    // and 404s. The fr/ar/es JSON stubs on disk are not yet translation-ready.
+    locales: ['en', 'sw'],
     routing: {
       prefixDefaultLocale: true,
       redirectToDefaultLocale: true,

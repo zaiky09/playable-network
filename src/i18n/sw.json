@@ -6,6 +6,7 @@
   "nav": {
     "home": "Nyumbani",
     "about": "Kuhusu",
+    "framework": "Mfumo",
     "programs": "Programu",
     "impact": "Athari",
     "partners": "Ushirikiano",
@@ -24,10 +25,27 @@
     "missionBody": "Kupitia michezo, ushauri, na ushirikiano wa kijamii, PlayAble Network inaunda njia za vijana katika jamii zilizo na uhitaji kuendeleza uwezo wao na kujenga mustakabali bora.",
     "highlightsTitle": "Athari za Hivi Karibuni",
     "highlights": [
-      { "stat": "42", "label": "Washiriki katika Kaunti ya Mombasa" },
-      { "stat": "36", "label": "Wavulana (10–16) katika majaribio ya Turkana" },
-      { "stat": "2", "label": "Programu za jamii zilizotolewa" }
-    ]
+      {
+        "stat": "42",
+        "label": "Washiriki katika Kaunti ya Mombasa"
+      },
+      {
+        "stat": "36",
+        "label": "Wavulana (10–16) katika majaribio ya Turkana"
+      },
+      {
+        "stat": "2",
+        "label": "Programu za jamii zilizotolewa"
+      }
+    ],
+    "frameworkTeaser": {
+      "eyebrow": "Jinsi tunavyofanya kazi",
+      "title": "Mfumo wa PLAY™",
+      "trademark": true,
+      "body": "Mbinu yetu wenyewe inayobadilisha kila shughuli ya michezo kuwa athari ya kijamii inayopimika — imeundwa, kutekelezwa na kupimwa katika nguzo nne.",
+      "cta": "Tazama mbinu yetu"
+    },
+    "metaDescription": "PlayAble Network — maendeleo ya vijana kupitia michezo, ushauri, na ushirikiano wa kijamii Kenya. Imejengwa kupitia mchezo, ikiongozwa na lengo."
   },
   "pillars": [
     {
@@ -43,6 +61,106 @@
       "blurb": "Kuunda mipango salama, inayojumuisha, na endelevu inayoimarisha jamii na kuboresha ustawi wa watoto na familia."
     }
   ],
+  "framework": {
+    "title": "Mfumo wa PLAY™",
+    "subtitle": "Mbinu yetu wenyewe",
+    "intro": "PlayAble Network imejenga mbinu yake yenyewe ya kutumia michezo kama chombo cha maendeleo endelevu — Mfumo wa PLAY. Kila programu, kila kipindi, kila matokeo ardhini hupita kwenye mbinu hii.",
+    "keyMessage": "Kila programu ya PlayAble Network inafuata Mfumo wa PLAY — Cheza, Jifunze, Lenga na Vuna — ili kuhakikisha kila shughuli ya michezo inaleta athari ya kijamii inayopimika.",
+    "pillars": [
+      {
+        "letter": "P",
+        "name": "Cheza",
+        "valueProp": "Mlango",
+        "description": "Michezo ni mlango wa kuingia. Soka na michezo iliyoratibiwa huwaleta vijana katika maeneo salama na yenye ushirikishwaji ambapo ushiriki wenyewe ni ushindi wa kwanza.",
+        "items": [
+          "Ushiriki katika michezo",
+          "Soka",
+          "Ujumuishaji",
+          "Afya na ustawi"
+        ],
+        "proof": "Vijana 78 wameshirikishwa kupitia michezo iliyoratibiwa katika kaunti mbili.",
+        "image": "/photos/turkana/turkana-match-orange-vests-dirt-field.jpg",
+        "imageAlt": "Wachezaji wachanga katika fulana za PlayAble kwenye uwanja wa Turkana"
+      },
+      {
+        "letter": "L",
+        "name": "Jifunze",
+        "valueProp": "Stadi nje ya uwanja",
+        "description": "Pindi vijana wanaposhirikishwa kupitia michezo, tunaongeza ujifunzaji — stadi zinazoenda nje ya uwanja hadi shuleni, kazini na maishani.",
+        "items": [
+          "Elimu",
+          "Stadi za maisha",
+          "Uongozi",
+          "Ufahamu wa fedha",
+          "Mwongozo wa kazi",
+          "Ufahamu wa ulinzi"
+        ],
+        "proof": "Mtaala wa stadi za maisha na ulinzi hutolewa katika kila kipindi.",
+        "image": "/photos/turkana/turkana-mentoring-session-03.jpg",
+        "imageAlt": "Mshauri akifanya kazi na mchezaji mmoja-mmoja katika kipindi cha Turkana"
+      },
+      {
+        "letter": "A",
+        "name": "Lenga",
+        "valueProp": "Njia za mbele",
+        "description": "Tunabadilisha ushiriki kuwa mwelekeo. Washauri, ufadhili wa masomo na njia za kazi na soka ya kiwango cha juu huwasaidia vijana kuona wanachoweza kuwa.",
+        "items": [
+          "Ushauri",
+          "Utambuzi wa vipaji",
+          "Mitandao",
+          "Ufadhili wa masomo",
+          "Njia za ajira"
+        ],
+        "itemsBuilding": [
+          "Ufadhili wa masomo",
+          "Njia za ajira"
+        ],
+        "proof": "Mahusiano ya ushauri yameanzishwa kwa washiriki katika majaribio yote mawili.",
+        "image": "/photos/turkana/turkana-coach-equipment-distribution.jpg",
+        "imageAlt": "Kocha akigawanya vifaa na vifaa kwa washiriki"
+      },
+      {
+        "letter": "Y",
+        "name": "Vuna",
+        "valueProp": "Manufaa kwa jamii",
+        "description": "Mavuno ya kazi hii yanaonekana katika jamii — uchumi imara wa ndani, wajitoleaji wenye bidii, mazingira bora ya kuishi na mustakabali endelevu zaidi.",
+        "items": [
+          "Athari za jamii",
+          "Fursa za kiuchumi",
+          "Msaada wa SME",
+          "Kujitolea",
+          "Uendelevu wa mazingira"
+        ],
+        "itemsBuilding": [
+          "Fursa za kiuchumi",
+          "Msaada wa SME",
+          "Uendelevu wa mazingira"
+        ],
+        "proof": "Makocha wa ndani wamefunzwa na wanafanya kazi; wazazi na viongozi wa jamii wameshirikishwa tangu wiki ya kwanza.",
+        "image": "/photos/event-community-gathering-01.jpg",
+        "imageAlt": "Mkusanyiko wa jamii katika uzinduzi wa programu ya PlayAble Network"
+      }
+    ],
+    "journey": {
+      "caption": "Michezo ni mlango wa kuingia. Athari ya kudumu kwa jamii ni matokeo.",
+      "stepFromLabel": "Kuanzia",
+      "stepToLabel": "hadi",
+      "ariaLabel": "Mchoro wa safari unaonyesha Mfumo wa PLAY kutoka Cheza kupitia Jifunze na Lenga hadi Vuna"
+    },
+    "applyTitle": "Kutumia PLAY kwa vitendo",
+    "applyBody": "Mfumo wa PLAY si kauli mbiu — ni jinsi kila programu inavyobuniwa, kutekelezwa na kupimwa. Kila eneo la programu na kila matokeo ya athari hurejelewa kwa nguzo moja au zaidi.",
+    "closingTitle": "Michezo hufungua mlango.",
+    "closingBody": "Tusaidie kuufungua kwa vijana zaidi, katika jamii zaidi, kila mwaka.",
+    "cta": {
+      "programmesLabel": "Iangalie katika programu zetu",
+      "programmesHref": "/programs",
+      "impactLabel": "Tazama matokeo",
+      "impactHref": "/impact",
+      "supportLabel": "Saidia kazi hii",
+      "supportHref": "/support"
+    },
+    "metaDescription": "Mfumo wa PLAY™ — mbinu ya PlayAble Network inayobadilisha michezo kuwa athari za kijamii zinazoweza kupimwa kupitia Play, Learn, Aspire, Yield."
+  },
   "about": {
     "title": "Kuhusu Sisi",
     "tagline": "Kujenga njia za maendeleo ya vijana kupitia michezo, ushauri, na ushirikiano wa kijamii.",
@@ -76,35 +194,125 @@
         "role": "Mkuu wa Ushirikiano wa Kijamii na Ushirikiano",
         "bio": "Anasaidia uhamasishaji wa jamii, ushirikiano wa wazazi, mahusiano na wadau, na maendeleo ya ushirikiano."
       }
-    ]
+    ],
+    "metaDescription": "Kutana na timu na mfumo nyuma ya PlayAble Network — kutumia mpira wa miguu kama nyenzo ya maendeleo ya vijana Mombasa na Turkana, Kenya."
   },
   "programs": {
     "title": "Programu Zetu",
     "intro": "PlayAble Network inatumia mpira wa miguu kama mlango wa maendeleo ya vijana, maendeleo ya makocha, na ushirikiano wa kijamii.",
+    "frameworkCallout": {
+      "text": "Kila programu inafuata Mfumo wa PLAY.",
+      "linkLabel": "Ona jinsi"
+    },
     "areasTitle": "Maeneo ya Programu",
     "areas": [
-      { "title": "Programu za Mpira wa Vijana", "body": "Shughuli za mpira zilizoratibiwa zinazohamasisha ushiriki, kazi ya pamoja, nidhamu, ujasiri, na maendeleo ya kibinafsi." },
-      { "title": "Ushauri na Ujuzi wa Maisha", "body": "Mifano chanya na fursa za kujifunza zinazounga mkono maendeleo ya tabia, uamuzi, uongozi, na ustahimilivu." },
-      { "title": "Maendeleo ya Makocha", "body": "Kusaidia makocha wa msingi kupitia mafunzo, ushauri, ufahamu wa ulinzi wa watoto, na mbinu za makocha zinazomlenga kijana." },
-      { "title": "Ushirikiano wa Kijamii", "body": "Kufanya kazi na wazazi, walezi, viongozi wa jamii, shule, na washirika wa ndani kuhakikisha programu zinajengwa kwenye mahitaji ya jamii." },
-      { "title": "Ulinzi na Ustawi wa Washiriki", "body": "Kukuza mazingira salama, yenye ushirikishwaji, kupitia desturi wazi za ulinzi na hatua za ulinzi wa washiriki." },
-      { "title": "Maendeleo ya Ushirikiano", "body": "Kushirikiana na mashirika, taasisi, na wadau wa kijamii kupanua fursa kwa vijana." }
+      {
+        "title": "Programu za Mpira wa Vijana",
+        "body": "Shughuli za mpira zilizoratibiwa zinazohamasisha ushiriki, kazi ya pamoja, nidhamu, ujasiri, na maendeleo ya kibinafsi.",
+        "pillars": [
+          "P",
+          "L"
+        ]
+      },
+      {
+        "title": "Ushauri na Ujuzi wa Maisha",
+        "body": "Mifano chanya na fursa za kujifunza zinazounga mkono maendeleo ya tabia, uamuzi, uongozi, na ustahimilivu.",
+        "pillars": [
+          "L",
+          "A"
+        ]
+      },
+      {
+        "title": "Maendeleo ya Makocha",
+        "body": "Kusaidia makocha wa msingi kupitia mafunzo, ushauri, ufahamu wa ulinzi wa watoto, na mbinu za makocha zinazomlenga kijana.",
+        "pillars": [
+          "L",
+          "Y"
+        ]
+      },
+      {
+        "title": "Ushirikiano wa Kijamii",
+        "body": "Kufanya kazi na wazazi, walezi, viongozi wa jamii, shule, na washirika wa ndani kuhakikisha programu zinajengwa kwenye mahitaji ya jamii.",
+        "pillars": [
+          "P",
+          "Y"
+        ]
+      },
+      {
+        "title": "Ulinzi na Ustawi wa Washiriki",
+        "body": "Kukuza mazingira salama, yenye ushirikishwaji, kupitia desturi wazi za ulinzi na hatua za ulinzi wa washiriki.",
+        "pillars": [
+          "P",
+          "L"
+        ]
+      },
+      {
+        "title": "Maendeleo ya Ushirikiano",
+        "body": "Kushirikiana na mashirika, taasisi, na wadau wa kijamii kupanua fursa kwa vijana.",
+        "pillars": [
+          "A"
+        ]
+      }
     ],
     "modelTitle": "Mfumo Wetu wa Programu",
     "modelIntro": "Mpira wa miguu ni mlango. Kila hatua inajengwa juu ya iliyotangulia kuunda athari za muda mrefu kwa jamii.",
     "modelSteps": [
-      { "title": "Ushiriki wa Vijana", "body": "Shughuli za mpira na ushauri zilizoratibiwa zinazotoa fursa chanya za kujifunza, kukua, na kushiriki." },
-      { "title": "Maendeleo ya Makocha", "body": "Mafunzo na msaada wa makocha wa msingi kuimarisha uwezo wa ndani, ufahamu wa ulinzi, na mbinu za makocha zinazomlenga kijana." },
-      { "title": "Mashindano ya Jamii", "body": "Fursa zilizoratibiwa za ushiriki kupitia tamasha la mpira, mashindano, na njia za mashindano za kijamii." },
-      { "title": "Ushirikiano na Fursa", "body": "Ushirikiano unaopanua fursa kwa vijana huku ukiimarisha mfumo wa mpira kwa upana zaidi." },
-      { "title": "Athari kwa Jamii", "body": "Kuimarisha uwezo wa ndani na kuunda mabadiliko chanya ya kudumu katika jamii tunazohudumia." }
+      {
+        "title": "Ushiriki wa Vijana",
+        "body": "Shughuli za mpira na ushauri zilizoratibiwa zinazotoa fursa chanya za kujifunza, kukua, na kushiriki."
+      },
+      {
+        "title": "Maendeleo ya Makocha",
+        "body": "Mafunzo na msaada wa makocha wa msingi kuimarisha uwezo wa ndani, ufahamu wa ulinzi, na mbinu za makocha zinazomlenga kijana."
+      },
+      {
+        "title": "Mashindano ya Jamii",
+        "body": "Fursa zilizoratibiwa za ushiriki kupitia tamasha la mpira, mashindano, na njia za mashindano za kijamii."
+      },
+      {
+        "title": "Ushirikiano na Fursa",
+        "body": "Ushirikiano unaopanua fursa kwa vijana huku ukiimarisha mfumo wa mpira kwa upana zaidi."
+      },
+      {
+        "title": "Athari kwa Jamii",
+        "body": "Kuimarisha uwezo wa ndani na kuunda mabadiliko chanya ya kudumu katika jamii tunazohudumia."
+      }
     ],
     "visionTitle": "Maono ya Muda Mrefu",
-    "visionBody": "Mtandao wa programu za mpira wa miguu za kijamii ambapo vijana wanaendelea kupitia ushiriki ulioratibiwa, makocha wanaimarishwa, na jamii zinachukua umiliki hai wa maendeleo ya vijana kupitia michezo."
+    "visionBody": "Mtandao wa programu za mpira wa miguu za kijamii ambapo vijana wanaendelea kupitia ushiriki ulioratibiwa, makocha wanaimarishwa, na jamii zinachukua umiliki hai wa maendeleo ya vijana kupitia michezo.",
+    "metaDescription": "Programu zetu zinatumia mpira wa miguu kama mlango wa ushiriki wa vijana, maendeleo ya makocha, mashindano ya jamii, na athari za kudumu."
   },
   "impact": {
     "title": "Athari na Hadithi",
     "intro": "Programu halisi, jamii halisi, vijana halisi. Kila mpango unajengwa kwenye ushirikiano wa ndani na unapimwa kwa ushiriki, ulinzi, na umiliki wa kudumu wa jamii.",
+    "frameworkSectionTitle": "Athari kwa nguzo za PLAY",
+    "frameworkSectionIntro": "Kila nguzo ya mfumo huu hutoa nini, kwa idadi na matokeo.",
+    "byPillar": [
+      {
+        "letter": "P",
+        "name": "Cheza",
+        "headline": "Vijana 78 wameshirikishwa kupitia michezo iliyoratibiwa",
+        "summary": "Katika kaunti mbili, soka iliyoratibiwa na michezo ya ushirikishwaji iliwaleta vijana katika mazingira salama yanayoungwa mkono."
+      },
+      {
+        "letter": "L",
+        "name": "Jifunze",
+        "headline": "Stadi za maisha na ulinzi zimejumuishwa katika kila kipindi",
+        "summary": "Ushauri, ufahamu wa ulinzi, na ujumbe wa elimu chanya hutolewa pamoja na kila kipindi cha mafunzo."
+      },
+      {
+        "letter": "A",
+        "name": "Lenga",
+        "headline": "Njia zimefunguliwa nje ya uwanja",
+        "summary": "Mahusiano ya ushauri, mfichuo wa mfano wa kuigwa na utambuzi wa vipaji vinavyolisha njia za muda mrefu."
+      },
+      {
+        "letter": "Y",
+        "name": "Vuna",
+        "headline": "Manufaa yanarudi kwa jamii",
+        "summary": "Makocha wa ndani wamefunzwa na wanafanya kazi; wazazi na viongozi wa jamii wameshirikishwa tangu mwanzo."
+      }
+    ],
     "programmes": [
       {
         "slug": "mombasa",
@@ -113,6 +321,11 @@
         "partner": "Gators Academy",
         "summary": "Programu ya mpira wa miguu na maendeleo ya vijana ya kijamii iliyoundwa na kutekelezwa na Gators Academy, ikilenga vijana walio katika mazingira magumu.",
         "body": "Ikianza na kikundi kidogo cha washiriki, mpango ulikua na kusaidia wavulana na wasichana 42 katika makundi tofauti ya umri. Shughuli zilifanywa wakati wote wa wiki na zikatoa mazingira yaliyoratibiwa ambapo vijana waliweza kujifunza, kushirikiana, na kushiriki katika shughuli chanya za kijamii huku wakikuza kazi ya pamoja, nidhamu, na uwajibikaji wa kibinafsi.",
+        "pillars": [
+          "P",
+          "L",
+          "A"
+        ],
         "highlights": [
           "Washiriki 42",
           "Makundi mengi ya umri",
@@ -129,6 +342,11 @@
         "partner": "Hill Side FC",
         "summary": "Majaribio ya mpira wa vijana wa ushirikishwaji uliotekelezwa na Hill Side FC, ukichanganya mpira, ushauri, ushirikiano wa kijamii, na shughuli zenye msingi wa ulinzi.",
         "body": "Majaribio yalibuniwa kupima mtindo wa mpira na ushauri wa kijamii unaolenga ushirikiano wa ndani, ushirikishwaji wa wazazi, na ustawi wa washiriki. Wavulana thelathini na sita wenye umri wa miaka 10–16 walishiriki katika vipindi vya mafunzo ya mpira na shughuli za ushauri, na wazazi na walezi walishirikishwa tangu mwanzo.",
+        "pillars": [
+          "P",
+          "L",
+          "Y"
+        ],
         "highlights": [
           "Wavulana 36 wenye umri wa miaka 10–16",
           "Vipindi vya mafunzo ya mpira na ushauri",
@@ -138,7 +356,8 @@
           "Maendeleo ya ushirikiano wa kijamii"
         ]
       }
-    ]
+    ],
+    "metaDescription": "Washiriki 42 Mombasa, wavulana 36 katika majaribio ya Turkana — programu za PlayAble Network zilizopangwa kwa nguzo za Mfumo wa PLAY."
   },
   "partners": {
     "title": "Ushirikiano",
@@ -158,7 +377,8 @@
       }
     ],
     "footer": "Programu zetu zinaimarishwa zaidi kupitia ushiriki hai wa wazazi, walezi, makocha, na viongozi wa jamii. Iwapo ungependa kushirikiana nasi, wasiliana nasi.",
-    "ctaText": "Kuwa mshirika"
+    "ctaText": "Kuwa mshirika",
+    "metaDescription": "PlayAble Network inashirikiana na vilabu vya msingi, shule, na mashirika ya jamii — Gators Academy, Hill Side FC, na zaidi — kuongeza mpira wa vijana Kenya."
   },
   "governance": {
     "title": "Utawala na Kufuata Kanuni",
@@ -176,7 +396,8 @@
     ],
     "safeguardingFooter": "Mambo ya ulinzi yamejumuishwa katika kupanga, utekelezaji, ufuatiliaji, na uripotaji wa programu, na yanabaki sehemu ya msingi ya shughuli zote.",
     "complianceTitle": "Usajili na Kufuata Kanuni",
-    "complianceBody": "Nyaraka za usajili wa NGO na kufuata kanuni zinafanyiwa kazi na zitachapishwa hapa zikishakamilika. Mashirika washirika wanaofanya uchunguzi wanaweza kuomba nyaraka za hivi punde kupitia barua pepe."
+    "complianceBody": "Nyaraka za usajili wa NGO na kufuata kanuni zinafanyiwa kazi na zitachapishwa hapa zikishakamilika. Mashirika washirika wanaofanya uchunguzi wanaweza kuomba nyaraka za hivi punde kupitia barua pepe.",
+    "metaDescription": "Ulinzi ni msingi wa shughuli zote za PlayAble Network — taratibu za ulinzi wa watoto, ridhaa ya wazazi, kanuni za maadili, na mifumo ya uwajibikaji."
   },
   "support": {
     "title": "Saidia Kazi Yetu",
@@ -197,7 +418,8 @@
     ],
     "contactTitle": "Wasiliana nasi",
     "contactBody": "Wasiliana ili tujadiliane jinsi ungependa kusaidia kazi yetu — kila mazungumzo huanza na ujumbe.",
-    "ctaText": "Wasiliana nasi"
+    "ctaText": "Wasiliana nasi",
+    "metaDescription": "Saidia PlayAble Network — toa mchango, shirikiana, au jitolee kupanua maendeleo ya mpira wa vijana katika jamii za Kenya zenye uhitaji."
   },
   "contact": {
     "title": "Wasiliana Nasi",
@@ -212,16 +434,26 @@
     "directPhone": "Simu",
     "directAddress": "Anwani",
     "directSocials": "Tupate kwenye",
-    "addressLine": "Kindaruma Road, Nairobi, Kenya"
+    "addressLine": "Kindaruma Road, Nairobi, Kenya",
+    "metaDescription": "Wasiliana na PlayAble Network — ushirikiano, maswali ya programu, michango au kujitolea. Tunapatikana Kindaruma Road, Nairobi, tukifanya kazi Kenya nzima."
   },
   "latest": {
     "title": "Mpya",
     "followCta": "Fuata kwenye Instagram",
     "viewOnInstagram": "Tazama kwenye Instagram",
     "fallback": [
-      { "caption": "Pamoja kwa Turkana — Mpira wa Miguu kwa Maendeleo ya Vijana na Hill Side FC.", "link": "https://www.instagram.com/theplayablenetwork" },
-      { "caption": "Mpira wa miguu wa kijamii Kaunti ya Mombasa na Gators Academy.", "link": "https://www.instagram.com/theplayablenetwork" },
-      { "caption": "Vipindi vya maendeleo ya makocha — kuimarisha uwezo wa ndani kupitia mafunzo yaliyoratibiwa.", "link": "https://www.instagram.com/theplayablenetwork" }
+      {
+        "caption": "Pamoja kwa Turkana — Mpira wa Miguu kwa Maendeleo ya Vijana na Hill Side FC.",
+        "link": "https://www.instagram.com/theplayablenetwork"
+      },
+      {
+        "caption": "Mpira wa miguu wa kijamii Kaunti ya Mombasa na Gators Academy.",
+        "link": "https://www.instagram.com/theplayablenetwork"
+      },
+      {
+        "caption": "Vipindi vya maendeleo ya makocha — kuimarisha uwezo wa ndani kupitia mafunzo yaliyoratibiwa.",
+        "link": "https://www.instagram.com/theplayablenetwork"
+      }
     ]
   },
   "footer": {
@@ -231,5 +463,36 @@
     "exploreTitle": "Vinjari",
     "connectTitle": "Wasiliana",
     "policiesTitle": "Kuhusu"
+  },
+  "socials": {
+    "instagram": {
+      "label": "Instagram",
+      "handle": "@theplayablenetwork",
+      "url": "https://www.instagram.com/theplayablenetwork"
+    },
+    "facebook": {
+      "label": "Facebook",
+      "handle": "The PlayAble Network",
+      "url": "https://www.facebook.com/theplayablenetwork"
+    },
+    "linkedin": {
+      "label": "LinkedIn",
+      "handle": "The PlayAble Network",
+      "url": "https://www.linkedin.com/company/theplayablenetwork"
+    },
+    "tiktok": {
+      "label": "TikTok",
+      "handle": "@theplayablenetwork",
+      "url": "https://www.tiktok.com/@theplayablenetwork"
+    }
+  },
+  "notFound": {
+    "title": "Ukurasa haupo",
+    "heading": "Hatuwezi kupata ukurasa huo",
+    "body": "Ukurasa unaoutafuta umehama, haupo, au unaweza kuwa umefuata kiungo kilichovunjika.",
+    "ctaHome": "Rudi nyumbani",
+    "ctaPrograms": "Programu zetu",
+    "ctaContact": "Wasiliana nasi",
+    "metaDescription": "Ukurasa unaoutafuta haupo. Rudi nyuma kwenye nyumbani ya PlayAble Network au tembelea programu na athari zetu."
   }
 }

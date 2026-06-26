@@ -11,7 +11,7 @@ const t = useTranslations(locale);
 const base = `/${locale}`;
 ---
 
-<BaseLayout locale={locale} title={t.about.title}>
+<BaseLayout locale={locale} title={t.about.title} description={t.about.metaDescription}>
   <section class="relative isolate overflow-hidden bg-brand-dark text-white">
     <video
       autoplay

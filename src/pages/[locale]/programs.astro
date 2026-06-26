@@ -9,9 +9,20 @@ export function getStaticPaths() {
 const locale = Astro.params.locale as Locale;
 const t = useTranslations(locale);
 const base = `/${locale}`;
+
+// Pillar accent class for letter-only chip on glass-morphism dark card.
+// Letter text stays white (best contrast on white/15 backdrop); pillar identity
+// is carried by a 2px top-border on the chip (review fix for color-on-glass
+// contrast failure with gold/cyan).
+const chipBorderClass: Record<string, string> = {
+  P: 'border-brand-light',
+  L: 'border-brand-cyan',
+  A: 'border-brand-accent',
+  Y: 'border-brand-gold',
+};
 ---
 
-<BaseLayout locale={locale} title={t.programs.title}>
+<BaseLayout locale={locale} title={t.programs.title} description={t.programs.metaDescription}>
   <section class="bg-gradient-to-br from-brand-light/5 to-brand-accent/5 py-16 md:py-24">
     <div class="container mx-auto px-4">
       <div class="grid gap-12 md:grid-cols-2 md:items-center">
@@ -58,6 +69,26 @@ const base = `/${locale}`;
     </div>
   </section>
 
+  {/* Framework callout strip — establishes the methodology lens before Programme Areas. */}
+  {t.programs.frameworkCallout && (
+    <section class="bg-brand py-6 text-white">
+      <div class="container mx-auto flex flex-wrap items-center justify-between gap-4 px-4">
+        <p class="flex items-center gap-3 text-sm font-semibold">
+          <span class="flex items-center gap-1" aria-hidden="true">
+            <span class="inline-flex h-7 w-7 items-center justify-center rounded-full border-t-2 border-brand-light bg-white/10 text-xs font-bold backdrop-blur">P</span>
+            <span class="inline-flex h-7 w-7 items-center justify-center rounded-full border-t-2 border-brand-cyan bg-white/10 text-xs font-bold backdrop-blur">L</span>
+            <span class="inline-flex h-7 w-7 items-center justify-center rounded-full border-t-2 border-brand-accent bg-white/10 text-xs font-bold backdrop-blur">A</span>
+            <span class="inline-flex h-7 w-7 items-center justify-center rounded-full border-t-2 border-brand-gold bg-white/10 text-xs font-bold backdrop-blur">Y</span>
+          </span>
+          <span>{t.programs.frameworkCallout.text}</span>
+        </p>
+        <a href={`${base}/framework`} class="text-sm font-semibold text-brand-gold hover:underline">
+          {t.programs.frameworkCallout.linkLabel} →
+        </a>
+      </div>
+    </section>
+  )}
+
   <section class="relative isolate overflow-hidden bg-brand-dark text-white">
     <video
       autoplay
@@ -86,6 +117,19 @@ const base = `/${locale}`;
             <article class="rounded-3xl border border-white/20 bg-white/10 p-6 shadow-lg backdrop-blur-sm">
               <h3 class="text-lg font-semibold text-brand-accent">{area.title}</h3>
               <p class="mt-3 text-sm text-blue-100">{area.body}</p>
+              {area.pillars && area.pillars.length > 0 && (
+                <div class="mt-4 flex flex-wrap items-center gap-2" aria-label="PLAY Framework pillars addressed">
+                  {area.pillars.map((letter) => (
+                    <span
+                      class={`inline-flex h-7 w-7 items-center justify-center rounded-full border-t-2 ${chipBorderClass[letter]} bg-white/15 text-xs font-bold text-white backdrop-blur-sm`}
+                      title={letter}
+                      lang="en"
+                    >
+                      {letter}
+                    </span>
+                  ))}
+                </div>
+              )}
             </article>
           ))
         }

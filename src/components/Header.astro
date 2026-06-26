@@ -39,8 +39,9 @@ const navLinkClass = (path: string) => `text-black font-semibold hover:text-bran
       </svg>
     </button>
 
-    <ul class="hidden gap-8 text-sm tracking-wide md:flex">
+    <ul class="hidden gap-6 text-sm tracking-wide md:flex">
       <li><a href={`${base}/about`} class={navLinkClass('/about')}>{t.nav.about}</a></li>
+      <li><a href={`${base}/framework`} class={navLinkClass('/framework')}>{t.nav.framework}</a></li>
       <li><a href={`${base}/programs`} class={navLinkClass('/programs')}>{t.nav.programs}</a></li>
       <li><a href={`${base}/impact`} class={navLinkClass('/impact')}>{t.nav.impact}</a></li>
       <li><a href={`${base}/partners`} class={navLinkClass('/partners')}>{t.nav.partners}</a></li>
@@ -61,6 +62,7 @@ const navLinkClass = (path: string) => `text-black font-semibold hover:text-bran
   <div id="mobile-menu" class="hidden border-t border-gray-200 bg-white md:hidden">
     <div class="space-y-3 px-4 py-4">
       <a href={`${base}/about`} class="block rounded px-3 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-100">{t.nav.about}</a>
+      <a href={`${base}/framework`} class="block rounded px-3 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-100">{t.nav.framework}</a>
       <a href={`${base}/programs`} class="block rounded px-3 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-100">{t.nav.programs}</a>
       <a href={`${base}/impact`} class="block rounded px-3 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-100">{t.nav.impact}</a>
       <a href={`${base}/partners`} class="block rounded px-3 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-100">{t.nav.partners}</a>
@@ -81,5 +83,4 @@ const navLinkClass = (path: string) => `text-black font-semibold hover:text-bran
       });
     });
   </script>
-  </nav>
 </header>

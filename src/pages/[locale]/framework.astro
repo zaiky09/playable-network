@@ -1,0 +1,241 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PlayFrameworkOverview from '@/components/PlayFrameworkOverview.astro';
+import { locales, useTranslations, type Locale } from '@/i18n/config';
+
+export function getStaticPaths() {
+  return locales.map((locale) => ({ params: { locale } }));
+}
+
+const locale = Astro.params.locale as Locale;
+const t = useTranslations(locale);
+const base = `/${locale}`;
+const f = t.framework;
+
+// Pillar-color tokens used for top-border accents on the light-section pillar
+// cards in Section 2. Letter glyphs on this light background use the strong
+// brand color (verified contrast OK against white in the review: navy 7.0:1,
+// orange 4.4:1 borderline, cyan 2.5:1 — we mitigate cyan and gold below by
+// using the *dark* variant for the small letter glyph AND restraining the
+// chip vocabulary to plain bullet lists per the design-cohesion review).
+const letterColorOnLight: Record<string, string> = {
+  P: 'text-brand',
+  L: 'text-brand-cyan',
+  A: 'text-brand-accent',
+  Y: 'text-brand-accent-dark', // amber-400 fails AA on white; we substitute the warm-dark token to keep the Y letter readable. Gold remains the diagram/dark-section accent.
+};
+
+const borderColorOnLight: Record<string, string> = {
+  P: 'border-brand',
+  L: 'border-brand-cyan',
+  A: 'border-brand-accent',
+  Y: 'border-brand-gold',
+};
+
+const bulletColorOnLight: Record<string, string> = {
+  P: 'bg-brand',
+  L: 'bg-brand-cyan',
+  A: 'bg-brand-accent',
+  Y: 'bg-brand-gold',
+};
+---
+
+<BaseLayout locale={locale} title={f.title} description={t.framework.metaDescription}>
+  {/* ============================================================
+      SECTION 1 — Cinematic hero (dark, video background)
+      Reuses the existing video-bg-with-poster pattern from index.astro.
+      ============================================================ */}
+  <section class="relative isolate overflow-hidden bg-brand-dark text-white">
+    <video
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+      poster="/video/impact-poster.jpg"
+      aria-hidden="true"
+      class="absolute inset-0 -z-10 h-full w-full object-cover motion-reduce:hidden"
+      disablepictureinpicture
+    >
+      <source src="/video/impact-hero.mp4" type="video/mp4" />
+    </video>
+
+    <img
+      src="/video/impact-poster.jpg"
+      alt=""
+      aria-hidden="true"
+      class="absolute inset-0 -z-10 hidden h-full w-full object-cover motion-reduce:block"
+    />
+
+    <div
+      aria-hidden="true"
+      class="absolute inset-0 -z-10 bg-gradient-to-br from-brand-dark/90 via-brand-dark/85 to-black/80"
+    >
+    </div>
+
+    <div class="container mx-auto flex min-h-[85vh] flex-col justify-center px-4 py-24">
+      <p class="text-sm font-semibold uppercase tracking-[0.3em] text-brand-gold drop-shadow">
+        {f.subtitle}
+      </p>
+      <h1 class="mt-4 text-5xl font-bold leading-tight tracking-tight text-white drop-shadow-lg md:text-7xl">
+        The PLAY Framework<sup class="align-top text-[0.45em] font-semibold" aria-hidden="true">™</sup>
+        <span class="sr-only">, trademarked</span>
+      </h1>
+      <p class="mt-6 max-w-3xl text-lg text-blue-100 drop-shadow md:text-xl">{f.intro}</p>
+
+      <div class="mt-12">
+        <PlayFrameworkOverview locale={locale} variant="hero" />
+      </div>
+
+      <div class="mt-10 flex flex-wrap gap-4">
+        <a
+          href={`${base}${f.cta.programmesHref}`}
+          class="rounded border-2 border-white/90 bg-white/10 px-6 py-3 font-semibold text-white shadow-lg shadow-black/30 backdrop-blur transition hover:bg-white hover:text-brand"
+        >
+          {f.cta.programmesLabel} →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  {/* ============================================================
+      SECTION 2 — Four pillars in detail (light, editorial stack)
+      Each card: top-border accent + giant letter glyph + name +
+      value-prop + description + plain bulleted item list (not chips,
+      per design-cohesion review) + concrete proof point.
+      ============================================================ */}
+  <section class="bg-white py-20 md:py-24">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-brand md:text-4xl">Four pillars. One methodology.</h2>
+      <p class="mt-4 max-w-3xl text-lg text-gray-700">{f.applyBody}</p>
+
+      <div class="mt-12 grid gap-8 md:grid-cols-2">
+        {
+          f.pillars.map((pillar) => (
+            <article
+              class={`overflow-hidden rounded-2xl border-t-4 ${borderColorOnLight[pillar.letter]} bg-white shadow-sm ring-1 ring-gray-100 transition hover:shadow-md`}
+            >
+              {/* Pillar hero image with gradient overlay + letter glyph anchored bottom-right */}
+              {pillar.image && (
+                <div class="relative aspect-[16/9] overflow-hidden bg-gray-200">
+                  <img
+                    src={pillar.image}
+                    alt={pillar.imageAlt || ''}
+                    class="absolute inset-0 h-full w-full object-cover"
+                    loading="lazy"
+                    width="800"
+                    height="450"
+                  />
+                  <div
+                    aria-hidden="true"
+                    class="absolute inset-0 bg-gradient-to-tr from-black/65 via-black/30 to-transparent"
+                  />
+                  <span
+                    aria-hidden="true"
+                    class="absolute bottom-3 right-6 text-8xl font-bold leading-none text-white drop-shadow-2xl md:text-9xl"
+                  >
+                    {pillar.letter}
+                  </span>
+                  <p class={`absolute bottom-5 left-6 text-xs font-semibold uppercase tracking-[0.25em] text-white/90 drop-shadow`}>
+                    {pillar.valueProp}
+                  </p>
+                </div>
+              )}
+
+              <div class="p-8">
+                <h3 class="text-2xl font-bold text-brand">{pillar.name}</h3>
+
+                <p class="mt-4 text-base text-gray-700">{pillar.description}</p>
+
+                <ul class="mt-6 space-y-2">
+                  {pillar.items.map((item) => (
+                    <li class="flex items-start gap-3 text-sm text-gray-700">
+                      <span
+                        aria-hidden="true"
+                        class={`mt-1.5 inline-block h-2 w-2 shrink-0 rounded-full ${bulletColorOnLight[pillar.letter]}`}
+                      />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {pillar.proof && (
+                  <p class={`mt-6 border-t border-gray-100 pt-4 text-sm font-semibold ${letterColorOnLight[pillar.letter]}`}>
+                    {pillar.proof}
+                  </p>
+                )}
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  {/* ============================================================
+      SECTION 3 — Key message callout + How we apply (combined per
+      content & design-cohesion review: collapse redundant sections).
+      Callout reuses the existing brand-band pattern from home.astro
+      (no novel italic+divider vocabulary).
+      ============================================================ */}
+  <section class="border-y border-gray-200 bg-brand py-16 text-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl font-bold md:text-3xl">{f.applyTitle}</h2>
+      <p class="mt-4 max-w-3xl text-lg text-blue-100">{f.keyMessage}</p>
+
+      <div class="mt-10 grid gap-4 md:grid-cols-3">
+        <a
+          href={`${base}${f.cta.programmesHref}`}
+          class="group block rounded-xl border border-white/20 bg-white/10 p-6 backdrop-blur-sm transition hover:bg-white/15"
+        >
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-brand-gold">{t.nav.programs}</p>
+          <p class="mt-3 text-base font-semibold text-white">
+            {f.cta.programmesLabel}
+            <span aria-hidden="true" class="ml-1 inline-block transition group-hover:translate-x-1">→</span>
+          </p>
+        </a>
+        <a
+          href={`${base}${f.cta.impactHref}`}
+          class="group block rounded-xl border border-white/20 bg-white/10 p-6 backdrop-blur-sm transition hover:bg-white/15"
+        >
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-brand-gold">{t.nav.impact}</p>
+          <p class="mt-3 text-base font-semibold text-white">
+            {f.cta.impactLabel}
+            <span aria-hidden="true" class="ml-1 inline-block transition group-hover:translate-x-1">→</span>
+          </p>
+        </a>
+        <a
+          href={`${base}${f.cta.supportHref}`}
+          class="group block rounded-xl border border-white/20 bg-white/10 p-6 backdrop-blur-sm transition hover:bg-white/15"
+        >
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-brand-gold">{t.nav.support}</p>
+          <p class="mt-3 text-base font-semibold text-white">
+            {f.cta.supportLabel}
+            <span aria-hidden="true" class="ml-1 inline-block transition group-hover:translate-x-1">→</span>
+          </p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  {/* ============================================================
+      SECTION 4 — Closing band (dark) with single Support CTA.
+      Replaces a redundant keyMessage tagline with a forward-looking
+      action line (content review fix). Button uses brand-accent-dark
+      to clear the AA body-text contrast floor.
+      ============================================================ */}
+  <section class="bg-gradient-to-br from-brand-dark via-brand-dark to-black py-20 text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold text-white drop-shadow-lg md:text-4xl">{f.closingTitle}</h2>
+      <p class="mx-auto mt-4 max-w-2xl text-lg text-blue-100 drop-shadow">{f.closingBody}</p>
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <a
+          href={`${base}${f.cta.supportHref}`}
+          class="rounded bg-brand-accent-dark px-8 py-3 text-base font-bold text-white shadow-lg shadow-black/30 transition hover:bg-brand-accent"
+        >
+          {f.cta.supportLabel}
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

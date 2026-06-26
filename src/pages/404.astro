@@ -1,0 +1,44 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { defaultLocale, useTranslations } from '@/i18n/config';
+
+// Astro renders 404.astro at the root /404 path, outside any locale folder.
+// We default to the site's primary locale strings.
+const locale = defaultLocale;
+const t = useTranslations(locale);
+const base = `/${locale}`;
+const nf = t.notFound;
+---
+
+<BaseLayout locale={locale} title={nf.title} description={nf.metaDescription}>
+  <section class="relative isolate min-h-[70vh] overflow-hidden bg-gradient-to-br from-brand-dark via-brand-dark to-black text-white">
+    <div class="container mx-auto flex min-h-[70vh] flex-col items-center justify-center px-4 py-24 text-center">
+      <p class="text-sm font-semibold uppercase tracking-[0.3em] text-brand-gold drop-shadow">404</p>
+      <h1 class="mt-4 text-5xl font-bold leading-tight tracking-tight text-white drop-shadow-lg md:text-7xl">
+        {nf.heading}
+      </h1>
+      <p class="mx-auto mt-6 max-w-2xl text-lg text-blue-100 drop-shadow md:text-xl">{nf.body}</p>
+
+      <div class="mt-10 flex flex-wrap justify-center gap-4">
+        <a
+          href={`${base}/`}
+          class="rounded bg-brand-accent px-6 py-3 font-semibold text-white shadow-lg shadow-black/30 hover:bg-brand-accent-dark"
+        >
+          {nf.ctaHome}
+        </a>
+        <a
+          href={`${base}/programs`}
+          class="rounded border-2 border-white/90 bg-white/10 px-6 py-3 font-semibold text-white backdrop-blur transition hover:bg-white hover:text-brand"
+        >
+          {nf.ctaPrograms}
+        </a>
+        <a
+          href={`${base}/contact`}
+          class="rounded border border-white/40 px-6 py-3 font-semibold text-white/90 transition hover:bg-white/10 hover:text-white"
+        >
+          {nf.ctaContact}
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

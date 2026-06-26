@@ -1,6 +1,7 @@
 ---
 import { useTranslations, type Locale } from '@/i18n/config';
 import Logo from './Logo.astro';
+import SocialLinks from './SocialLinks.astro';
 
 interface Props {
   locale: Locale;
@@ -49,20 +50,7 @@ const base = `/${locale}`;
     </div>
 
     <div class="mt-8 flex justify-center border-t border-slate-800 pt-6">
-      <div class="flex flex-wrap items-center justify-center gap-3">
-        <a href="https://www.instagram.com/theplayablenetwork" aria-label="Instagram" class="rounded-full bg-slate-900/90 p-2 transition hover:bg-brand">
-          <img src="/SocialMediaIcons/instagramIcon.jpg" alt="Instagram" class="h-6 w-6 object-contain" />
-        </a>
-        <a href="https://www.facebook.com/theplayablenetwork" aria-label="Facebook" class="rounded-full bg-slate-900/90 p-2 transition hover:bg-brand">
-          <img src="/SocialMediaIcons/facebookIcon.jpg" alt="Facebook" class="h-6 w-6 object-contain" />
-        </a>
-        <a href="https://www.linkedin.com/company/theplayablenetwork" aria-label="LinkedIn" class="rounded-full bg-slate-900/90 p-2 transition hover:bg-brand">
-          <img src="/SocialMediaIcons/linkedInIcon.jpg" alt="LinkedIn" class="h-6 w-6 object-contain" />
-        </a>
-        <a href="https://www.tiktok.com/@theplayablenetwork" aria-label="TikTok" class="rounded-full bg-slate-900/90 p-2 transition hover:bg-brand">
-          <img src="/SocialMediaIcons/tiktokIcon.jpg" alt="TikTok" class="h-6 w-6 object-contain" />
-        </a>
-      </div>
+      <SocialLinks locale={locale} variant="compact" theme="dark" />
     </div>
 
     <div class="mt-10">

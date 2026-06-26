@@ -28,17 +28,81 @@ const galleries: Record<string, string[]> = {
     'mombasa-group.jpg',
   ],
 };
+
+// Pillar tokens — accessible variants for light-section pillar cards.
+// Gold (Y, #fbbf24) fails AA on white at body size, so the Y card uses
+// brand-accent-dark (#c2410c, ~5.9:1) for the letter glyph and headline.
+// The gold token stays on the top-border (decorative ≥3:1 floor OK).
+const pillarLetterColor: Record<string, string> = {
+  P: 'text-brand',
+  L: 'text-brand-cyan',
+  A: 'text-brand-accent',
+  Y: 'text-brand-accent-dark',
+};
+const pillarBorderColor: Record<string, string> = {
+  P: 'border-brand',
+  L: 'border-brand-cyan',
+  A: 'border-brand-accent',
+  Y: 'border-brand-gold',
+};
+// Letter-only pillar chips on white background (per-programme block).
+const chipBorderClass: Record<string, string> = {
+  P: 'border-brand',
+  L: 'border-brand-cyan',
+  A: 'border-brand-accent',
+  Y: 'border-brand-gold',
+};
 ---
 
-<BaseLayout locale={locale} title={t.impact.title}>
+<BaseLayout locale={locale} title={t.impact.title} description={t.impact.metaDescription}>
   <section class="container mx-auto px-4 py-16">
     <h1 class="text-4xl font-bold text-brand md:text-5xl">{t.impact.title}</h1>
     <p class="mt-6 max-w-3xl text-lg text-gray-700">{t.impact.intro}</p>
   </section>
 
+  {/* ============================================================
+      Impact by PLAY pillar — methodology lens at the top. NO
+      programme anchor (review fix), NO bulleted outcomes (avoids
+      duplicating per-programme highlights below).
+      ============================================================ */}
+  {t.impact.byPillar && (
+    <section class="bg-gray-50 py-16">
+      <div class="container mx-auto px-4">
+        <h2 class="text-2xl font-bold text-brand md:text-3xl">{t.impact.frameworkSectionTitle}</h2>
+        <p class="mt-3 max-w-3xl text-gray-700">{t.impact.frameworkSectionIntro}</p>
+
+        <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {t.impact.byPillar.map((pillar) => (
+            <article
+              class={`rounded-2xl border-t-4 ${pillarBorderColor[pillar.letter]} bg-white p-6 shadow-sm ring-1 ring-gray-100`}
+            >
+              <span
+                aria-hidden="true"
+                class={`block text-6xl font-bold leading-none drop-shadow ${pillarLetterColor[pillar.letter]}`}
+              >
+                {pillar.letter}
+              </span>
+              <h3 class="mt-4 text-lg font-bold text-brand">{pillar.name}</h3>
+              <p class={`mt-3 text-base font-semibold ${pillarLetterColor[pillar.letter]}`}>
+                {pillar.headline}
+              </p>
+              <p class="mt-3 text-sm text-gray-700">{pillar.summary}</p>
+            </article>
+          ))}
+        </div>
+
+        <p class="mt-10 max-w-3xl text-sm italic text-gray-600">
+          <a href={`${base}/framework`} class="font-semibold text-brand-accent hover:underline">
+            See the full framework →
+          </a>
+        </p>
+      </div>
+    </section>
+  )}
+
   {
     t.impact.programmes.map((p, idx) => (
-      <section class={idx % 2 === 0 ? 'bg-gray-50 py-16' : 'py-16'}>
+      <section class={idx % 2 === 0 ? 'bg-white py-16' : 'bg-gray-50 py-16'}>
         <div class="container mx-auto px-4">
           <div
             class={`aspect-[16/9] w-full overflow-hidden rounded-lg bg-gradient-to-br ${p.slug === 'turkana' ? 'from-brand to-brand-accent' : 'from-brand-accent to-brand'}`}
@@ -58,6 +122,20 @@ const galleries: Record<string, string[]> = {
                 {p.location} · {p.partner}
               </p>
               <h2 class="mt-2 text-3xl font-bold text-brand">{p.name}</h2>
+              {p.pillars && p.pillars.length > 0 && (
+                <div class="mt-4 flex flex-wrap items-center gap-2" aria-label="PLAY Framework pillars addressed by this programme">
+                  <span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-gray-500">Pillars:</span>
+                  {p.pillars.map((letter) => (
+                    <span
+                      class={`inline-flex h-7 w-7 items-center justify-center rounded-full border-t-2 ${chipBorderClass[letter]} bg-white text-xs font-bold text-brand ring-1 ring-gray-200`}
+                      title={letter}
+                      lang="en"
+                    >
+                      {letter}
+                    </span>
+                  ))}
+                </div>
+              )}
               <p class="mt-4 text-lg text-gray-700">{p.summary}</p>
               <p class="mt-4 text-gray-700">{p.body}</p>
             </div>

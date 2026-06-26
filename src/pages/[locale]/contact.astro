@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import ContactForm from '@/components/ContactForm.astro';
+import SocialLinks from '@/components/SocialLinks.astro';
 import { locales, useTranslations, type Locale } from '@/i18n/config';
 
 export function getStaticPaths() {
@@ -11,7 +12,7 @@ const locale = Astro.params.locale as Locale;
 const t = useTranslations(locale);
 ---
 
-<BaseLayout locale={locale} title={t.contact.title}>
+<BaseLayout locale={locale} title={t.contact.title} description={t.contact.metaDescription}>
   <section class="container mx-auto grid gap-12 px-4 py-16 md:grid-cols-2">
     <div>
       <h1 class="text-4xl font-bold text-brand">{t.contact.title}</h1>
@@ -42,13 +43,8 @@ const t = useTranslations(locale);
         </div>
         <div>
           <dt class="font-semibold text-gray-900">{t.contact.directSocials}</dt>
-          <dd class="mt-1 flex flex-wrap gap-4">
-            <a
-              href="https://www.instagram.com/theplayablenetwork"
-              class="text-brand hover:underline"
-            >
-              Instagram
-            </a>
+          <dd class="mt-2">
+            <SocialLinks locale={locale} variant="labeled" class="-ml-2" />
           </dd>
         </div>
       </dl>

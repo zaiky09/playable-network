@@ -11,7 +11,7 @@ const t = useTranslations(locale);
 const base = `/${locale}`;
 ---
 
-<BaseLayout locale={locale} title={t.governance.title}>
+<BaseLayout locale={locale} title={t.governance.title} description={t.governance.metaDescription}>
   <section class="container mx-auto px-4 py-16">
     <h1 class="text-4xl font-bold text-brand md:text-5xl">{t.governance.title}</h1>
     <p class="mt-6 max-w-3xl text-lg text-gray-700">{t.governance.intro}</p>

@@ -6,6 +6,7 @@
   "nav": {
     "home": "Home",
     "about": "About",
+    "framework": "Framework",
     "programs": "Programmes",
     "impact": "Impact",
     "partners": "Partnerships",
@@ -24,10 +25,27 @@
     "missionBody": "Through sport, mentorship, and community engagement, The PlayAble Network creates pathways for young people in underserved communities to develop their potential and build stronger futures.",
     "highlightsTitle": "Recent Impact",
     "highlights": [
-      { "stat": "42", "label": "Participants engaged in Mombasa County" },
-      { "stat": "36", "label": "Boys (10–16) in the Turkana pilot" },
-      { "stat": "2", "label": "Community-based programmes delivered" }
-    ]
+      {
+        "stat": "42",
+        "label": "Participants engaged in Mombasa County"
+      },
+      {
+        "stat": "36",
+        "label": "Boys (10–16) in the Turkana pilot"
+      },
+      {
+        "stat": "2",
+        "label": "Community-based programmes delivered"
+      }
+    ],
+    "frameworkTeaser": {
+      "eyebrow": "How we work",
+      "title": "The PLAY Framework™",
+      "trademark": true,
+      "body": "A proprietary methodology that turns every sporting activity into measurable social impact — designed, delivered and measured across four pillars.",
+      "cta": "See the methodology"
+    },
+    "metaDescription": "PlayAble Network — youth development through sport, mentorship, and community engagement in Kenya. Built through play, driven by purpose."
   },
   "pillars": [
     {
@@ -43,6 +61,106 @@
       "blurb": "Creating safe, inclusive, and sustainable initiatives that strengthen communities and improve the wellbeing of children and families."
     }
   ],
+  "framework": {
+    "title": "The PLAY Framework™",
+    "subtitle": "Our proprietary methodology",
+    "intro": "PlayAble Network has built a proprietary methodology for using sport as a tool for sustainable development — the PLAY Framework. Every programme, every session, every result on the ground flows through it.",
+    "keyMessage": "Every PlayAble Network programme follows the PLAY Framework — Play, Learn, Aspire and Yield — so every sporting activity creates measurable social impact.",
+    "pillars": [
+      {
+        "letter": "P",
+        "name": "Play",
+        "valueProp": "The doorway",
+        "description": "Sport is the entry point. Football and structured play bring young people into safe, inclusive spaces where participation itself is the first win.",
+        "items": [
+          "Sport participation",
+          "Football",
+          "Inclusion",
+          "Health and wellbeing"
+        ],
+        "proof": "78 young people engaged through structured sport across two counties.",
+        "image": "/photos/turkana/turkana-match-orange-vests-dirt-field.jpg",
+        "imageAlt": "Young footballers in PlayAble vests on a Turkana dirt pitch"
+      },
+      {
+        "letter": "L",
+        "name": "Learn",
+        "valueProp": "Skills off the pitch",
+        "description": "Once young people are engaged through sport, we layer in learning — skills that travel off the pitch into school, work and life.",
+        "items": [
+          "Education",
+          "Life skills",
+          "Leadership",
+          "Financial literacy",
+          "Career guidance",
+          "Safeguarding awareness"
+        ],
+        "proof": "Life-skills and safeguarding curriculum delivered in every session.",
+        "image": "/photos/turkana/turkana-mentoring-session-03.jpg",
+        "imageAlt": "A mentor working one-on-one with a player during a Turkana session"
+      },
+      {
+        "letter": "A",
+        "name": "Aspire",
+        "valueProp": "Pathways forward",
+        "description": "We turn engagement into direction. Mentors, scholarships and pathways into work and elite football help young people see what they can become.",
+        "items": [
+          "Mentorship",
+          "Talent identification",
+          "Networking",
+          "Scholarships",
+          "Employment pathways"
+        ],
+        "itemsBuilding": [
+          "Scholarships",
+          "Employment pathways"
+        ],
+        "proof": "Mentor relationships established for participants in both pilots.",
+        "image": "/photos/turkana/turkana-coach-equipment-distribution.jpg",
+        "imageAlt": "A coach handing out kit and equipment to participants"
+      },
+      {
+        "letter": "Y",
+        "name": "Yield",
+        "valueProp": "Returns to community",
+        "description": "The return on the work shows up in the community — stronger local economies, active volunteers, healthier neighbourhoods and a more sustainable future.",
+        "items": [
+          "Community impact",
+          "Economic opportunities",
+          "SME support",
+          "Volunteerism",
+          "Environmental sustainability"
+        ],
+        "itemsBuilding": [
+          "Economic opportunities",
+          "SME support",
+          "Environmental sustainability"
+        ],
+        "proof": "Local coaches trained and active; parents and community leaders engaged from week one.",
+        "image": "/photos/event-community-gathering-01.jpg",
+        "imageAlt": "Community gathering at a PlayAble Network programme launch"
+      }
+    ],
+    "journey": {
+      "caption": "Sport is the entry point. Lasting community impact is the outcome.",
+      "stepFromLabel": "From",
+      "stepToLabel": "to",
+      "ariaLabel": "Journey diagram showing the PLAY Framework moving from Play through Learn and Aspire to Yield"
+    },
+    "applyTitle": "Applying PLAY in practice",
+    "applyBody": "The PLAY Framework is not a slogan — it is how every programme is designed, delivered and measured. Each programme area and each impact result is mapped back to one or more pillars.",
+    "closingTitle": "Sport opens the door.",
+    "closingBody": "Help us keep it open for more young people, in more communities, every year.",
+    "cta": {
+      "programmesLabel": "See it in our programmes",
+      "programmesHref": "/programs",
+      "impactLabel": "See the results",
+      "impactHref": "/impact",
+      "supportLabel": "Support the work",
+      "supportHref": "/support"
+    },
+    "metaDescription": "The PLAY Framework™ — PlayAble Network's proprietary methodology turning sport into measurable social impact through Play, Learn, Aspire, Yield."
+  },
   "about": {
     "title": "About Us",
     "tagline": "Building pathways for youth development through sport, mentorship, and community engagement.",
@@ -76,35 +194,125 @@
         "role": "Community Engagement & Partnerships Lead",
         "bio": "Supports community mobilisation, parent engagement, stakeholder relations, and partnership development."
       }
-    ]
+    ],
+    "metaDescription": "Meet the team and methodology behind PlayAble Network — using football as a vehicle for youth development across Mombasa and Turkana, Kenya."
   },
   "programs": {
     "title": "Our Programmes",
     "intro": "The PlayAble Network uses football as an entry point for youth development, coach development, and community engagement.",
+    "frameworkCallout": {
+      "text": "Every programme follows the PLAY Framework.",
+      "linkLabel": "See how"
+    },
     "areasTitle": "Programme Areas",
     "areas": [
-      { "title": "Youth Football Programmes", "body": "Structured football activities that encourage participation, teamwork, discipline, confidence, and personal development." },
-      { "title": "Mentorship and Life Skills", "body": "Positive role models and learning opportunities that support character development, decision-making, leadership, and resilience." },
-      { "title": "Coach Development", "body": "Supporting grassroots coaches through training, mentorship, safeguarding awareness, and youth-centred coaching approaches." },
-      { "title": "Community Engagement", "body": "Working with parents, guardians, community leaders, schools, and local partners to ground programmes in community needs." },
-      { "title": "Safeguarding & Participant Wellbeing", "body": "Promoting safe, inclusive, and supportive environments through clear safeguarding practices and participant protection measures." },
-      { "title": "Partnership Development", "body": "Collaborating with organisations, institutions, and community stakeholders to expand opportunities for young people." }
+      {
+        "title": "Youth Football Programmes",
+        "body": "Structured football activities that encourage participation, teamwork, discipline, confidence, and personal development.",
+        "pillars": [
+          "P",
+          "L"
+        ]
+      },
+      {
+        "title": "Mentorship and Life Skills",
+        "body": "Positive role models and learning opportunities that support character development, decision-making, leadership, and resilience.",
+        "pillars": [
+          "L",
+          "A"
+        ]
+      },
+      {
+        "title": "Coach Development",
+        "body": "Supporting grassroots coaches through training, mentorship, safeguarding awareness, and youth-centred coaching approaches.",
+        "pillars": [
+          "L",
+          "Y"
+        ]
+      },
+      {
+        "title": "Community Engagement",
+        "body": "Working with parents, guardians, community leaders, schools, and local partners to ground programmes in community needs.",
+        "pillars": [
+          "P",
+          "Y"
+        ]
+      },
+      {
+        "title": "Safeguarding & Participant Wellbeing",
+        "body": "Promoting safe, inclusive, and supportive environments through clear safeguarding practices and participant protection measures.",
+        "pillars": [
+          "P",
+          "L"
+        ]
+      },
+      {
+        "title": "Partnership Development",
+        "body": "Collaborating with organisations, institutions, and community stakeholders to expand opportunities for young people.",
+        "pillars": [
+          "A"
+        ]
+      }
     ],
     "modelTitle": "Our Programme Model",
     "modelIntro": "Football is the entry point. Each stage builds on the last to create lasting community impact.",
     "modelSteps": [
-      { "title": "Youth Participation", "body": "Structured football and mentorship activities that provide young people with positive opportunities for learning, growth, and participation." },
-      { "title": "Coach Development", "body": "Training and supporting grassroots coaches to strengthen local capacity, safeguarding awareness, and youth-centred coaching approaches." },
-      { "title": "Community Competitions", "body": "Structured opportunities for participation through football festivals, tournaments, and community-based competition pathways." },
-      { "title": "Partnerships & Opportunities", "body": "Collaborations that expand opportunities for young people while strengthening the wider football ecosystem." },
-      { "title": "Community Impact", "body": "Strengthening local capacity and creating lasting positive change in the communities we serve." }
+      {
+        "title": "Youth Participation",
+        "body": "Structured football and mentorship activities that provide young people with positive opportunities for learning, growth, and participation."
+      },
+      {
+        "title": "Coach Development",
+        "body": "Training and supporting grassroots coaches to strengthen local capacity, safeguarding awareness, and youth-centred coaching approaches."
+      },
+      {
+        "title": "Community Competitions",
+        "body": "Structured opportunities for participation through football festivals, tournaments, and community-based competition pathways."
+      },
+      {
+        "title": "Partnerships & Opportunities",
+        "body": "Collaborations that expand opportunities for young people while strengthening the wider football ecosystem."
+      },
+      {
+        "title": "Community Impact",
+        "body": "Strengthening local capacity and creating lasting positive change in the communities we serve."
+      }
     ],
     "visionTitle": "Long-term Vision",
-    "visionBody": "A network of community-based football programmes where young people progress through structured participation, coaches are strengthened, and communities take active ownership of youth development through sport."
+    "visionBody": "A network of community-based football programmes where young people progress through structured participation, coaches are strengthened, and communities take active ownership of youth development through sport.",
+    "metaDescription": "Our programmes use football as the entry point for youth participation, coach development, community competitions, and lasting community impact."
   },
   "impact": {
     "title": "Impact & Stories",
     "intro": "Real programmes, real communities, real young people. Every initiative is grounded in local partnership and measured by participation, safeguarding, and lasting community ownership.",
+    "frameworkSectionTitle": "Impact by PLAY pillar",
+    "frameworkSectionIntro": "What each pillar of the framework delivers, in numbers and outcomes.",
+    "byPillar": [
+      {
+        "letter": "P",
+        "name": "Play",
+        "headline": "78 young people engaged through structured sport",
+        "summary": "Across two counties, structured football and inclusive play brought young people into safe, supported environments."
+      },
+      {
+        "letter": "L",
+        "name": "Learn",
+        "headline": "Life skills and safeguarding embedded in every session",
+        "summary": "Mentorship, safeguarding awareness, and education-positive messaging delivered alongside every training session."
+      },
+      {
+        "letter": "A",
+        "name": "Aspire",
+        "headline": "Pathways opened beyond the pitch",
+        "summary": "Mentor relationships, role-model exposure and talent identification feeding into longer-term pathways."
+      },
+      {
+        "letter": "Y",
+        "name": "Yield",
+        "headline": "Returns flowing back to the community",
+        "summary": "Local coaches trained and active; parents and community leaders engaged from the outset."
+      }
+    ],
     "programmes": [
       {
         "slug": "mombasa",
@@ -113,6 +321,11 @@
         "partner": "Gators Academy",
         "summary": "A community-based football and youth development programme designed and delivered with Gators Academy, focused on vulnerable and underserved young people.",
         "body": "Beginning with a small group of participants, the initiative grew to support 42 boys and girls across multiple age categories. Activities were delivered throughout the week and provided a structured environment where young people could learn, interact, and participate in positive community-based activities while developing teamwork, discipline, and personal responsibility.",
+        "pillars": [
+          "P",
+          "L",
+          "A"
+        ],
         "highlights": [
           "42 participants engaged",
           "Multiple age categories supported",
@@ -129,6 +342,11 @@
         "partner": "Hill Side FC",
         "summary": "An inclusive youth football pilot delivered with Hill Side FC, combining football, mentorship, community engagement, and safeguarding-focused activities.",
         "body": "The pilot tested a community-based football and mentorship model centred on local partnerships, parent engagement, and participant wellbeing. Thirty-six boys aged 10–16 years participated in structured football sessions and mentorship activities, with parents and guardians engaged from the outset.",
+        "pillars": [
+          "P",
+          "L",
+          "Y"
+        ],
         "highlights": [
           "36 boys aged 10–16 years",
           "Football training & mentorship sessions",
@@ -138,7 +356,8 @@
           "Community partnership development"
         ]
       }
-    ]
+    ],
+    "metaDescription": "42 participants in Mombasa, 36 boys in the Turkana pilot — PlayAble Network's youth football programmes mapped to the PLAY Framework pillars."
   },
   "partners": {
     "title": "Partnerships",
@@ -158,7 +377,8 @@
       }
     ],
     "footer": "Our programmes are further strengthened through the active involvement of parents, guardians, coaches, and community leaders. If you'd like to partner with us, get in touch.",
-    "ctaText": "Become a partner"
+    "ctaText": "Become a partner",
+    "metaDescription": "PlayAble Network partners with grassroots clubs, schools, and community organisations — Gators Academy, Hill Side FC, and growing — to scale youth football in Kenya."
   },
   "governance": {
     "title": "Governance & Compliance",
@@ -176,7 +396,8 @@
     ],
     "safeguardingFooter": "Safeguarding considerations are integrated into programme planning, delivery, monitoring, and reporting, and remain a core component of all activities.",
     "complianceTitle": "Registration & Compliance",
-    "complianceBody": "NGO registration and compliance documentation is being finalised and will be published here once complete. Partner organisations conducting due diligence can request the latest documentation via email."
+    "complianceBody": "NGO registration and compliance documentation is being finalised and will be published here once complete. Partner organisations conducting due diligence can request the latest documentation via email.",
+    "metaDescription": "Safeguarding is fundamental to all PlayAble Network activities — child protection procedures, parent consent, facilitator code of conduct, and accountability mechanisms."
   },
   "support": {
     "title": "Support Our Work",
@@ -197,7 +418,8 @@
     ],
     "contactTitle": "Get in touch",
     "contactBody": "Reach out to discuss how you'd like to support our work — every conversation starts with a message.",
-    "ctaText": "Contact us"
+    "ctaText": "Contact us",
+    "metaDescription": "Support PlayAble Network — donate, partner, or volunteer to expand youth football development across Kenya's underserved communities."
   },
   "contact": {
     "title": "Contact Us",
@@ -212,16 +434,26 @@
     "directPhone": "Phone",
     "directAddress": "Address",
     "directSocials": "Find us on",
-    "addressLine": "Kindaruma Road, Nairobi, Kenya"
+    "addressLine": "Kindaruma Road, Nairobi, Kenya",
+    "metaDescription": "Get in touch with PlayAble Network — partnerships, programme enquiries, donations or volunteering. Based on Kindaruma Road, Nairobi, working across Kenya."
   },
   "latest": {
     "title": "Latest",
     "followCta": "Follow on Instagram",
     "viewOnInstagram": "View on Instagram",
     "fallback": [
-      { "caption": "Together for Turkana — Football for Youth Development with Hill Side FC.", "link": "https://www.instagram.com/theplayablenetwork" },
-      { "caption": "Community-based football in Mombasa County with Gators Academy.", "link": "https://www.instagram.com/theplayablenetwork" },
-      { "caption": "Coach development sessions — strengthening local capacity through structured training.", "link": "https://www.instagram.com/theplayablenetwork" }
+      {
+        "caption": "Together for Turkana — Football for Youth Development with Hill Side FC.",
+        "link": "https://www.instagram.com/theplayablenetwork"
+      },
+      {
+        "caption": "Community-based football in Mombasa County with Gators Academy.",
+        "link": "https://www.instagram.com/theplayablenetwork"
+      },
+      {
+        "caption": "Coach development sessions — strengthening local capacity through structured training.",
+        "link": "https://www.instagram.com/theplayablenetwork"
+      }
     ]
   },
   "footer": {
@@ -231,5 +463,36 @@
     "exploreTitle": "Explore",
     "connectTitle": "Connect",
     "policiesTitle": "About"
+  },
+  "socials": {
+    "instagram": {
+      "label": "Instagram",
+      "handle": "@theplayablenetwork",
+      "url": "https://www.instagram.com/theplayablenetwork"
+    },
+    "facebook": {
+      "label": "Facebook",
+      "handle": "The PlayAble Network",
+      "url": "https://www.facebook.com/theplayablenetwork"
+    },
+    "linkedin": {
+      "label": "LinkedIn",
+      "handle": "The PlayAble Network",
+      "url": "https://www.linkedin.com/company/theplayablenetwork"
+    },
+    "tiktok": {
+      "label": "TikTok",
+      "handle": "@theplayablenetwork",
+      "url": "https://www.tiktok.com/@theplayablenetwork"
+    }
+  },
+  "notFound": {
+    "title": "Page not found",
+    "heading": "We can't find that page",
+    "body": "The page you're looking for has moved, doesn't exist, or you may have followed a broken link.",
+    "ctaHome": "Back to home",
+    "ctaPrograms": "Our programmes",
+    "ctaContact": "Contact us",
+    "metaDescription": "The page you're looking for doesn't exist. Head back to PlayAble Network's home page or explore our programmes and impact."
   }
 }

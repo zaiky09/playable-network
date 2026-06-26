@@ -1,0 +1,153 @@
+---
+import type { Locale } from '@/i18n/config';
+import { useTranslations } from '@/i18n/config';
+
+interface Props {
+  locale: Locale;
+  variant?: 'compact' | 'hero' | 'detail';
+}
+
+const { locale, variant = 'compact' } = Astro.props;
+const t = useTranslations(locale);
+const pillars = t.framework.pillars;
+const journey = t.framework.journey;
+
+// Border-accent token per pillar. Letter glyphs themselves render white on dark
+// backgrounds (review fix: navy-P on navy-dark fails contrast). Theme color is
+// reserved for the top-border, the value-prop label, and the glow halo.
+const borderClass: Record<string, string> = {
+  P: 'border-brand',
+  L: 'border-brand-cyan',
+  A: 'border-brand-accent',
+  Y: 'border-brand-gold',
+};
+
+// Light radial glow color per pillar — used as the soft halo behind the letter.
+const glowClass: Record<string, string> = {
+  P: 'bg-brand/30',
+  L: 'bg-brand-cyan/30',
+  A: 'bg-brand-accent/30',
+  Y: 'bg-brand-gold/30',
+};
+
+// Value-prop label color on dark backgrounds — all pillar colors pass contrast
+// on the brand-dark gradient (verified above).
+const valuePropClass: Record<string, string> = {
+  P: 'text-brand-light',
+  L: 'text-brand-cyan',
+  A: 'text-brand-accent-light',
+  Y: 'text-brand-gold',
+};
+
+const letterSize = variant === 'hero' ? 'text-[8rem] md:text-[10rem]' : variant === 'detail' ? 'text-7xl md:text-8xl' : 'text-6xl md:text-7xl';
+---
+
+<section
+  class={`play-framework-overview play-framework-overview--${variant} relative`}
+  data-variant={variant}
+>
+  <h2 class="sr-only">{journey.ariaLabel}</h2>
+
+  <ol
+    class="play-strip mx-auto flex max-w-6xl flex-col items-stretch gap-6 md:flex-row md:items-stretch md:gap-3 lg:gap-4"
+  >
+    {
+      pillars.map((pillar, i) => (
+        <Fragment>
+          <li
+            class={`play-tile group relative flex-1 rounded-2xl border-t-4 ${borderClass[pillar.letter]} bg-white/5 px-4 py-6 text-center backdrop-blur-sm md:py-8`}
+          >
+            <div class="relative mx-auto inline-block">
+              <span
+                aria-hidden="true"
+                class={`pointer-events-none absolute inset-0 -z-10 rounded-full blur-2xl ${glowClass[pillar.letter]}`}
+              />
+              <span
+                lang="en"
+                class={`block font-bold leading-none tracking-tight text-white drop-shadow-lg ${letterSize}`}
+              >
+                {pillar.letter}
+              </span>
+            </div>
+            <p class="mt-3 text-lg font-semibold text-white drop-shadow md:text-xl">{pillar.name}</p>
+            {variant !== 'compact' && (
+              <p class={`mt-1 text-xs font-semibold uppercase tracking-[0.2em] ${valuePropClass[pillar.letter]} drop-shadow`}>
+                {pillar.valueProp}
+              </p>
+            )}
+            {variant === 'detail' && (
+              <ul class="mt-4 flex flex-wrap justify-center gap-1.5">
+                {pillar.items.map((item) => (
+                  <li class="rounded-full bg-white/10 px-2.5 py-1 text-[11px] font-medium text-white/90 backdrop-blur-sm">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </li>
+          {i < pillars.length - 1 && (
+            <li
+              aria-hidden="true"
+              class="play-connector pointer-events-none flex items-center justify-center text-white/60 md:flex-none md:px-1"
+            >
+              {/* Mobile: down arrow. Desktop: right chevron. */}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="h-6 w-6 rotate-90 md:rotate-0"
+              >
+                <polyline points="9 6 15 12 9 18" />
+              </svg>
+            </li>
+          )}
+        </Fragment>
+      ))
+    }
+  </ol>
+
+  {/* From → To labels: HTML text (not SVG) so they remain readable in any locale. */}
+  <div class="mt-6 flex items-center justify-between gap-4 px-2 text-[11px] font-semibold uppercase tracking-[0.25em] text-white/70 md:px-6">
+    <span class="flex items-center gap-2">
+      <span aria-hidden="true" class="h-px w-6 bg-white/40"></span>
+      <span>{journey.stepFromLabel} · {pillars[0].name}</span>
+    </span>
+    <span class="flex items-center gap-2">
+      <span>{pillars[pillars.length - 1].name} · {journey.stepToLabel}</span>
+      <span aria-hidden="true" class="h-px w-6 bg-white/40"></span>
+    </span>
+  </div>
+
+  <p class="mt-6 text-center text-base italic text-blue-100 drop-shadow md:text-lg">
+    {journey.caption}
+  </p>
+</section>
+
+<style>
+  /* Shimmer animation along the underline — only defined when motion is allowed.
+     This is the review fix for hand-rolled CSS animations bypassing the
+     motion-reduce: Tailwind modifier. */
+  @media (prefers-reduced-motion: no-preference) {
+    .play-connector svg {
+      animation: play-pulse 2.8s ease-in-out infinite;
+    }
+    @keyframes play-pulse {
+      0%, 100% { opacity: 0.45; transform: translateX(0); }
+      50% { opacity: 1; transform: translateX(3px); }
+    }
+    /* Vertical (mobile) arrow translates Y instead of X. */
+    @media (max-width: 767px) {
+      .play-connector svg {
+        animation-name: play-pulse-vertical;
+      }
+      @keyframes play-pulse-vertical {
+        0%, 100% { opacity: 0.45; transform: translateY(0) rotate(90deg); }
+        50% { opacity: 1; transform: translateY(3px) rotate(90deg); }
+      }
+    }
+  }
+</style>
