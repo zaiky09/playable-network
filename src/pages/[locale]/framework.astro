@@ -55,10 +55,8 @@ const bulletColorOnLight: Record<string, string> = {
       poster="/video/impact-poster.jpg"
       aria-hidden="true"
       class="absolute inset-0 -z-10 h-full w-full object-cover motion-reduce:hidden"
-      disablepictureinpicture
-    >
-      <source src="/video/FrameworkVideo-mobile.mp4" type="video/mp4" media="(max-width: 768px)" />
-      <source src="/video/FrameworkVideo.mp4" type="video/mp4" />
+      disablepictureinpicture data-mobile-src="/video/FrameworkVideo-mobile.mp4" data-desktop-src="/video/FrameworkVideo.mp4"
+    >      <source src="/video/FrameworkVideo.mp4" type="video/mp4" />
     </video>
 
     <img
@@ -70,7 +68,7 @@ const bulletColorOnLight: Record<string, string> = {
 
     <div
       aria-hidden="true"
-      class="absolute inset-0 -z-10 bg-gradient-to-br from-brand-dark/90 via-brand-dark/85 to-black/80"
+      class="absolute inset-0 -z-10 bg-gradient-to-br from-brand-dark/95 via-brand-dark/90 to-black/90"
     >
     </div>
 

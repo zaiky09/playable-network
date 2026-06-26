@@ -22,15 +22,13 @@ const base = `/${locale}`;
       poster="/video/impact-poster.jpg"
       aria-hidden="true"
       class="absolute inset-0 -z-10 h-full w-full object-cover motion-reduce:hidden"
-      disablepictureinpicture
-    >
-      <source src="/video/AboutUs-mobile.mp4" type="video/mp4" media="(max-width: 768px)" />
-      <source src="/video/AboutUs.mp4" type="video/mp4" />
+      disablepictureinpicture data-mobile-src="/video/AboutUs-mobile.mp4" data-desktop-src="/video/AboutUs.mp4"
+    >      <source src="/video/AboutUs.mp4" type="video/mp4" />
     </video>
 
     <div
       aria-hidden="true"
-      class="absolute inset-0 -z-10 bg-gradient-to-br from-brand-dark/85 via-brand-dark/75 to-brand-accent/40"
+      class="absolute inset-0 -z-10 bg-gradient-to-br from-brand-dark/95 via-brand-dark/85 to-brand-accent/45"
     ></div>
 
     <div class="container mx-auto flex min-h-[70vh] flex-col justify-center px-4 py-24 md:min-h-[75vh]">

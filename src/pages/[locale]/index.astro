@@ -25,10 +25,8 @@ const base = `/${locale}`;
       poster="/video/impact-poster.jpg"
       aria-hidden="true"
       class="absolute inset-0 -z-10 h-full w-full object-cover motion-reduce:hidden"
-      disablepictureinpicture
-    >
-      <source src="/video/impact-hero-mobile.mp4" type="video/mp4" media="(max-width: 768px)" />
-      <source src="/video/impact-hero.mp4" type="video/mp4" />
+      disablepictureinpicture data-mobile-src="/video/impact-hero-mobile.mp4" data-desktop-src="/video/impact-hero.mp4"
+    >      <source src="/video/impact-hero.mp4" type="video/mp4" />
     </video>
 
     <!-- Poster fallback (reduced-motion users + before video loads) -->
@@ -42,7 +40,7 @@ const base = `/${locale}`;
     <!-- Dark gradient overlay for text contrast (passes WCAG AA on white text) -->
     <div
       aria-hidden="true"
-      class="absolute inset-0 -z-10 bg-gradient-to-br from-brand-dark/90 via-brand-dark/75 to-brand-accent/30"
+      class="absolute inset-0 -z-10 bg-gradient-to-br from-brand-dark/95 via-brand-dark/85 to-brand-accent/40"
     >
     </div>
 
@@ -152,10 +150,8 @@ const base = `/${locale}`;
       poster="/video/impact-poster.jpg"
       aria-hidden="true"
       class="absolute inset-0 -z-10 h-full w-full object-cover motion-reduce:hidden"
-      disablepictureinpicture
-    >
-      <source src="/video/impact-hero-mobile.mp4" type="video/mp4" media="(max-width: 768px)" />
-      <source src="/video/impact-hero.mp4" type="video/mp4" />
+      disablepictureinpicture data-mobile-src="/video/impact-hero-mobile.mp4" data-desktop-src="/video/impact-hero.mp4"
+    >      <source src="/video/impact-hero.mp4" type="video/mp4" />
     </video>
 
     <img

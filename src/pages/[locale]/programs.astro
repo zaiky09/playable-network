@@ -99,15 +99,13 @@ const chipBorderClass: Record<string, string> = {
       poster="/video/impact-poster.jpg"
       aria-hidden="true"
       class="absolute inset-0 -z-10 h-full w-full object-cover motion-reduce:hidden"
-      disablepictureinpicture
-    >
-      <source src="/video/OurProgram-mobile.mp4" type="video/mp4" media="(max-width: 768px)" />
-      <source src="/video/OurProgram.mp4" type="video/mp4" />
+      disablepictureinpicture data-mobile-src="/video/OurProgram-mobile.mp4" data-desktop-src="/video/OurProgram.mp4"
+    >      <source src="/video/OurProgram.mp4" type="video/mp4" />
     </video>
 
     <div
       aria-hidden="true"
-      class="absolute inset-0 -z-10 bg-gradient-to-br from-brand-dark/90 via-brand-dark/80 to-brand-accent/35"
+      class="absolute inset-0 -z-10 bg-gradient-to-br from-brand-dark/95 via-brand-dark/90 to-brand-accent/45"
     ></div>
 
     <div class="relative z-10 container mx-auto px-4 py-16">

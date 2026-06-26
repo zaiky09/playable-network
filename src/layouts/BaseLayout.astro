@@ -133,5 +133,22 @@ const orgJsonLd = {
     <Header locale={locale} isHomePage={isHomePage} />
     <main class="flex-1"><slot /></main>
     <Footer locale={locale} />
+
+    {/* Responsive video src selection — replaces the deprecated/iOS-unreliable
+        `<source media="...">` pattern. Runs once, picks the right variant based
+        on viewport, sets video.src and reloads. Safe across all browsers. */}
+    <script is:inline>
+      (function () {
+        var isMobile = window.matchMedia('(max-width: 768px)').matches;
+        var videos = document.querySelectorAll('video[data-mobile-src][data-desktop-src]');
+        for (var i = 0; i < videos.length; i++) {
+          var v = videos[i];
+          var src = isMobile ? v.dataset.mobileSrc : v.dataset.desktopSrc;
+          if (!src) continue;
+          v.src = src;
+          try { v.load(); } catch (e) { /* ignore */ }
+        }
+      })();
+    </script>
   </body>
 </html>
