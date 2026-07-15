@@ -1,0 +1,130 @@
+name: Refresh Instagram feed
+
+# Purpose:
+# Behold.so caches the Instagram feed but does NOT push updates to Vercel when
+# a new post appears. Astro fetches Behold at build time, so new posts stay
+# invisible on the website until the next deploy. This workflow polls Behold
+# hourly, compares the current post IDs against the last-seen list, and only
+# triggers a Vercel rebuild when the set has genuinely changed. Idle hours
+# cost nothing beyond one curl+diff.
+#
+# End-to-end latency budget on a new IG post:
+#   - Behold's own poll of Instagram: up to ~24h on the free tier
+#   - This workflow's poll interval: 1h
+#   - Vercel build: ~30s
+#   Worst case ~25h; typical ~1-6h.
+#
+# Prerequisites (set once, via GitHub UI):
+#   Repo Settings > Secrets and variables > Actions > New repository secret
+#     - VERCEL_DEPLOY_HOOK: the Vercel Deploy Hook URL (main branch)
+#     - BEHOLD_FEED_ID:     the Behold feed ID (currently 8T9xKL6TlFKoYzIY5x82)
+
+on:
+  schedule:
+    # Every hour at minute :17. Off-peak on the GitHub Actions cron scheduler,
+    # so this workflow rarely gets delayed by top-of-hour contention.
+    - cron: '17 * * * *'
+  # Manual trigger from the Actions tab, for testing and forcing an immediate check.
+  workflow_dispatch:
+
+# Cancel any in-flight run of this workflow if a new one starts.
+concurrency:
+  group: refresh-instagram
+  cancel-in-progress: false
+
+jobs:
+  check-and-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      # -----------------------------------------------------------------------
+      # 1. Restore the last-seen post-IDs list from GitHub Actions cache.
+      #    On first run this is a miss — we treat that as "everything is new"
+      #    and trigger a deploy. Cache lives ~7 days; a missing cache after a
+      #    quiet week just causes one no-op-ish rebuild, which is fine.
+      # -----------------------------------------------------------------------
+      - name: Restore last-seen post IDs
+        id: cache-restore
+        uses: actions/cache/restore@v4
+        with:
+          path: .instagram-last-seen
+          key: instagram-lastseen-v1
+          # No restore-keys — we want an EXACT match to know we have valid prior state.
+
+      # -----------------------------------------------------------------------
+      # 2. Fetch the Behold feed and extract just the post IDs, sorted for a
+      #    stable comparison. jq is preinstalled on ubuntu-latest.
+      # -----------------------------------------------------------------------
+      - name: Fetch Behold feed and diff
+        id: fetch
+        run: |
+          set -euo pipefail
+
+          FEED_URL="https://feeds.behold.so/${{ secrets.BEHOLD_FEED_ID }}"
+          echo "Fetching $FEED_URL..."
+
+          # -fsS = fail on 4xx/5xx, silent progress, still show errors
+          if ! curl -fsS "$FEED_URL" -o /tmp/behold.json; then
+            echo "::error::Behold API returned an error. Not triggering a deploy."
+            exit 1
+          fi
+
+          # Extract post IDs, sort, join with newlines for a stable diff.
+          jq -r '.posts | map(.id) | sort | .[]' /tmp/behold.json > .instagram-current
+          POST_COUNT=$(wc -l < .instagram-current | tr -d ' ')
+          echo "Behold returned $POST_COUNT posts."
+
+          if [ ! -s .instagram-last-seen ]; then
+            echo "::notice::No cached state — treating as changed (first run or cache expired)."
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "reason=first-run-or-expired-cache" >> "$GITHUB_OUTPUT"
+          elif ! diff -q .instagram-last-seen .instagram-current > /dev/null; then
+            echo "::notice::Behold feed changed."
+            echo "Diff:"
+            diff .instagram-last-seen .instagram-current || true
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "reason=new-posts-detected" >> "$GITHUB_OUTPUT"
+          else
+            echo "::notice::No new posts. Skipping deploy."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      # -----------------------------------------------------------------------
+      # 3. Save the current post-ID list back to the cache for the next run.
+      #    We only save when there IS current data (skips save on Behold error).
+      # -----------------------------------------------------------------------
+      - name: Save current state to cache
+        if: always() && hashFiles('.instagram-current') != ''
+        uses: actions/cache/save@v4
+        with:
+          path: .instagram-last-seen
+          key: instagram-lastseen-v1-${{ github.run_id }}
+        continue-on-error: true
+
+      # -----------------------------------------------------------------------
+      # 4. Only when the diff detected change, POST to the Vercel Deploy Hook.
+      #    That triggers a fresh production build, which re-fetches Behold at
+      #    build time and bakes the new posts into /en/ and /sw/ home pages.
+      # -----------------------------------------------------------------------
+      - name: Trigger Vercel deploy
+        if: steps.fetch.outputs.changed == 'true'
+        run: |
+          set -euo pipefail
+          echo "Triggering Vercel rebuild (reason: ${{ steps.fetch.outputs.reason }})..."
+
+          # -fsS with a body-capture so we see any error response Vercel returns.
+          HTTP_STATUS=$(curl -fsS -o /tmp/vercel-response.txt -w "%{http_code}" \
+            -X POST "${{ secrets.VERCEL_DEPLOY_HOOK }}")
+
+          echo "Vercel responded with HTTP $HTTP_STATUS"
+          echo "Response body:"
+          cat /tmp/vercel-response.txt
+          echo ""
+
+          if [ "$HTTP_STATUS" -lt 200 ] || [ "$HTTP_STATUS" -ge 300 ]; then
+            echo "::error::Vercel Deploy Hook returned non-2xx. Check that VERCEL_DEPLOY_HOOK secret is correct."
+            exit 1
+          fi
+
+          echo "::notice::Deploy triggered successfully."
