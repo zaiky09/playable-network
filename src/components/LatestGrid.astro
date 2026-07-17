@@ -19,7 +19,10 @@ interface DisplayItem {
 }
 
 // Priority: Sanity (NGO-curated) → Behold (auto Instagram) → static i18n fallback
-const sanityPosts = await getLatestPosts(3);
+// Fetch all available posts. Behold's free tier returns up to ~25;
+// Sanity has no cap. Passing a high limit keeps the array bounded
+// while showing every post the feed knows about.
+const sanityPosts = await getLatestPosts(50);
 
 let items: DisplayItem[];
 let source: 'sanity' | 'behold' | 'fallback';
@@ -34,7 +37,7 @@ if (sanityPosts && sanityPosts.length > 0) {
     date: p.publishedAt,
   }));
 } else {
-  const beholdPosts = await getInstagramPosts(3);
+  const beholdPosts = await getInstagramPosts(50);
   if (beholdPosts && beholdPosts.length > 0) {
     source = 'behold';
     items = beholdPosts.map((p: BeholdPost) => ({
