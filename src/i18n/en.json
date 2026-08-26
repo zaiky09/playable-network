@@ -430,6 +430,8 @@
     "formSubmit": "Send message",
     "formSuccess": "Thanks — we'll be in touch shortly.",
     "formError": "Something went wrong. Please try again or email us directly.",
+    "formErrorField": "Please check the highlighted field and try again.",
+    "formErrorServer": "We couldn't reach our server. Please try again shortly or email us directly at playablenetwork.ke@gmail.com.",
     "directEmail": "Email",
     "directPhone": "Phone",
     "directAddress": "Address",

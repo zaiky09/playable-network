@@ -430,6 +430,8 @@
     "formSubmit": "Tuma ujumbe",
     "formSuccess": "Asante — tutawasiliana nawe hivi karibuni.",
     "formError": "Kitu kimekosea. Tafadhali jaribu tena au tuma barua pepe moja kwa moja.",
+    "formErrorField": "Tafadhali angalia sehemu iliyoangaziwa na ujaribu tena.",
+    "formErrorServer": "Hatukuweza kufikia seva yetu. Tafadhali jaribu tena baadaye au tuma barua pepe moja kwa moja kwa playablenetwork.ke@gmail.com.",
     "directEmail": "Barua pepe",
     "directPhone": "Simu",
     "directAddress": "Anwani",

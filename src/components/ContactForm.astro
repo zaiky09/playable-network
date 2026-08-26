@@ -17,7 +17,8 @@ const t = useTranslations(locale);
       name="name"
       type="text"
       required
-      class="mt-1 w-full rounded border border-gray-300 px-3 py-2 focus:border-brand focus:outline-none"
+      maxlength="200"
+      class="mt-1 w-full rounded border border-gray-300 px-3 py-2 focus:border-brand focus:outline-none data-[error=true]:border-red-500"
     />
   </div>
   <div>
@@ -27,7 +28,8 @@ const t = useTranslations(locale);
       name="email"
       type="email"
       required
-      class="mt-1 w-full rounded border border-gray-300 px-3 py-2 focus:border-brand focus:outline-none"
+      maxlength="320"
+      class="mt-1 w-full rounded border border-gray-300 px-3 py-2 focus:border-brand focus:outline-none data-[error=true]:border-red-500"
     />
   </div>
   <div>
@@ -37,10 +39,11 @@ const t = useTranslations(locale);
       name="message"
       rows="5"
       required
-      class="mt-1 w-full rounded border border-gray-300 px-3 py-2 focus:border-brand focus:outline-none"
+      maxlength="5000"
+      class="mt-1 w-full rounded border border-gray-300 px-3 py-2 focus:border-brand focus:outline-none data-[error=true]:border-red-500"
     ></textarea>
   </div>
-  <!-- Honeypot: bots fill this; humans don't see it -->
+  <!-- Honeypot: bots fill this; humans don't see it. Server silently accepts and drops. -->
   <input
     type="text"
     name="company"
@@ -59,30 +62,71 @@ const t = useTranslations(locale);
 </form>
 
 <script
-  define:vars={{ successMsg: t.contact.formSuccess, errorMsg: t.contact.formError }}
+  define:vars={{
+    successMsg: t.contact.formSuccess,
+    errorMsg: t.contact.formError,
+    fieldErrorMsg: t.contact.formErrorField,
+    serverErrorMsg: t.contact.formErrorServer,
+  }}
 >
   const form = document.getElementById('contact-form');
   const status = document.getElementById('contact-status');
   const button = form.querySelector('button[type="submit"]');
+  // Captured when the page loads. Sent with the submission so the server can
+  // reject anything submitted implausibly fast (bots).
+  const loadedAt = Date.now();
+
+  function clearFieldErrors() {
+    for (const el of form.querySelectorAll('[data-error="true"]')) {
+      el.removeAttribute('data-error');
+    }
+  }
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     status.textContent = '';
+    clearFieldErrors();
     button.disabled = true;
 
     const data = Object.fromEntries(new FormData(form));
+    data._elapsed = Date.now() - loadedAt;
+
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
       });
-      if (!res.ok) throw new Error('bad response');
-      status.textContent = successMsg;
-      status.className = 'text-sm text-green-700';
-      form.reset();
+
+      if (res.ok) {
+        status.textContent = successMsg;
+        status.className = 'text-sm text-green-700';
+        form.reset();
+        return;
+      }
+
+      // Try to read the structured error; fall back to generic if the body isn't JSON.
+      let body = {};
+      try { body = await res.json(); } catch { /* ignore */ }
+
+      if (res.status === 400 && body.field) {
+        const el = form.querySelector(`[name="${body.field}"]`);
+        if (el) {
+          el.setAttribute('data-error', 'true');
+          el.focus();
+        }
+        status.textContent = fieldErrorMsg;
+        status.className = 'text-sm text-red-700';
+      } else if (res.status >= 500) {
+        status.textContent = serverErrorMsg;
+        status.className = 'text-sm text-red-700';
+      } else {
+        status.textContent = errorMsg;
+        status.className = 'text-sm text-red-700';
+      }
     } catch {
-      status.textContent = errorMsg;
+      // Network error — couldn't reach the server at all.
+      status.textContent = serverErrorMsg;
       status.className = 'text-sm text-red-700';
     } finally {
       button.disabled = false;
